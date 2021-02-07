@@ -1,0 +1,21 @@
+<div id="category">
+  <% @posts.each do |post| %>
+    <% if post.title %>
+      <%= link_to post.title, post %>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="category">
+  <% @posts.each do |post| %>
+    <% if post.image.attached? %>
+      <%= link_to image_tag(post.resized_image), post_path(post, category: @category_name, order: @order) %>
+    <% else %>
+    <div style="width: 240px; height: 135px">
+      <%= link_to post.title, post %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+

@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <%= image_tag(@post.image, class:'img-fluid') if @post.image.attached? %>
+      <div class="row">
+        <div class="col-12">
+            <h4>
+                [<%= @post.rating %>/10 ]
+            </h4>
+        </div>
+        <div class="col-12">
+
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h6>
+          This Post Belongs to
+          <%= pluralize(@post.categories.count, "Category") %>
+        </h6>
+      </div>
+      <% @post.categories.each do |category| %>
+      <div class="col-6">
+          <%= link_to category.name, root_path(category: category.name) %>
+      </div>
+      <% end %>
+        <div class="col-12">
+        <div class="btn-group">
+          <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-warning' %>
+          <%= link_to "Delete", @post, method: :delete, class: 'btn btn-danger' %>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <h1>
+        <% if params[:category].nil? %>
+          <%= link_to @post.title, root_path %>
+        <% else %>
+          <%= link_to @post.title, root_path(category: params[:category], order: params[:order]) %>
+        <% end %>
+      </h1>
+    </div>
+  </div>
+</div>
