@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :categories
-  resources :posts
+  root 'posts#index'
   
   post 'posts/search'
-  root "posts#index"
+  resources :categories
+  resources :posts do
+    member do
+      put 'like' => 'posts#like'
+    end
+  end
+  
 end

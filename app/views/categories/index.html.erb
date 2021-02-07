@@ -1,27 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1 class="mx-auto">
+    <%= link_to "Categories", root_path %>
+  </h1>
 
-<h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+  <% @categories.each do |category| %>
+    <div class="container">
+      <div class="row">
+        <%= form_with(model: category, local: true) do |form| %>
+        <div class="col">
+          <div class="form-group row">
+            <div class="col">
+              <%= form.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="col-form-label">
+              <%= form.label "Feature", class: 'col-form-label'%>
+            </div>
+            <div class="col">
+              <%= form.check_box :feature_in_navbar, class:'form-control' %>
+            </div>
+            <div class="col">
+              <%= form.submit "Update", class:'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <div class="col">
+          <%= link_to "Delete", category, method: :delete, data: {confirm: "Are you sure that you want to delete the entire Category?"}, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

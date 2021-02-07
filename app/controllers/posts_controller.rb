@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy like ]
   before_action :set_categories, except: [:show, :destroy]
-  #before_action :is_admin!, except: [:index, :show, :like]
-  #before_action :authenticate_user!, only: [:like]
+  before_action :is_admin!, except: [:index, :show, :like]
+  before_action :authenticate_user!, only: [:like]
   
   def index
     set_posts_and_categories_with_criteria(params[:category], params[:order])
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    post = Post.create! params.require(:post).permit(:title, :review, :rating, :image, category_ids: [])
+    post = Post.create! params.require(:post).permit(:title, :post, :rating, :image, category_ids: [])
     post.image.attach(params[:image])
     
 
@@ -70,29 +70,29 @@ class PostsController < ApplicationController
 
   private
 
-def set_post
-  @post = Post.find(params[:id])
-end
-
-def set_categories
-  @categories = Category.all
-end
-
-def post_params
-  params.require(:post).permit(:title, :review, :rating, :image, category_ids: [])
-end
-
-def set_posts_and_categories_with_criteria(requested_category, requested_order)
-  if requested_category.nil? || requested_category.eql?('All')
-    posts_by_category = Post.all
-    @category_name = 'All'
-  else
-    posts_by_category = filter_posts_by_category(requested_category)
-    @category_name = requested_category
+  def set_post
+    @post = Post.find(params[:id])
   end
-  @order = requested_order
-  order_posts(requested_order, posts_by_category)
-end
+
+  def set_categories
+    @categories = Category.all
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :post, :rating, :image, category_ids: [])
+  end
+
+  def set_posts_and_categories_with_criteria(requested_category, requested_order)
+    if requested_category.nil? || requested_category.eql?('All')
+      posts_by_category = Post.all
+      @category_name = 'All'
+    else
+      posts_by_category = filter_posts_by_category(requested_category)
+      @category_name = requested_category
+    end
+    @order = requested_order
+    order_posts(requested_order, posts_by_category)
+  end
 
   def filter_posts_by_category(category_name)
     @category = Category.find_by(name: category_name)
