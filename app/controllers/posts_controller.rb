@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    post = Post.create! params.require(:post).permit(:title, :post, :rating, :image, category_ids: [])
+    post = Post.create! params.require(:post).permit(:title, :review, :rating, :image, category_ids: [])
     post.image.attach(params[:image])
     
 

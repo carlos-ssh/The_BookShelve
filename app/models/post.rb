@@ -1,7 +1,10 @@
 class Post < ApplicationRecord
   has_and_belongs_to_many :categories
   has_one_attached :image
+  has_rich_text :review
+  
   acts_as_votable 
+  
   validates :title, :review, :image, presence: true
 
   def resized_image

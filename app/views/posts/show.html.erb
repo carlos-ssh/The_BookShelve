@@ -9,7 +9,15 @@
             </h4>
         </div>
         <div class="col-12">
-
+          <h5>
+            <div id="like-count">
+              <%= render 'posts/likes', post: @post %>
+            </div>
+            <div id="like-link">
+              <%= render 'posts/like_link', post: @post %>
+            </div>
+            <hr>
+          </h5>
         </div>
     </div>
     <div class="row">
@@ -25,10 +33,12 @@
       </div>
       <% end %>
         <div class="col-12">
+        <% if current_user&.admin %>
         <div class="btn-group">
           <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-warning' %>
           <%= link_to "Delete", @post, method: :delete, class: 'btn btn-danger' %>
         </div>
+        <% end %>
         </div>
       </div>
     </div>
@@ -40,6 +50,9 @@
           <%= link_to @post.title, root_path(category: params[:category], order: params[:order]) %>
         <% end %>
       </h1>
+      <div class="container">
+          <%= @game.review %>
+      </div>
     </div>
   </div>
 </div>
