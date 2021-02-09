@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
-  
+
   post 'posts/search'
   resources :categories
   resources :posts do
@@ -9,5 +11,4 @@ Rails.application.routes.draw do
       put 'like' => 'posts#like'
     end
   end
-  
 end

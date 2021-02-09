@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTablePostsCategories < ActiveRecord::Migration[6.1]
   def change
     create_join_table :posts, :categories do |t|
