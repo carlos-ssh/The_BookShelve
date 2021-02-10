@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container mx-auto">
   <h1 class="mx-auto">
-    <%= link_to "Categories", root_path %>
+    <%= link_to "Categories", root_path, class:'text-dark' %>
   </h1>
+    <p>Set the Categories that you want to display in the Navbar.</p>
 
   <% @categories.each do |category| %>
     <div class="container">
@@ -9,11 +10,11 @@
         <%= form_with(model: category, local: true) do |form| %>
         <div class="col">
           <div class="form-group row">
-            <div class="col">
+            <div class="col-4">
               <%= form.text_field :name, class: 'form-control' %>
             </div>
             <div class="col-form-label">
-              <%= form.label "Feature", class: 'col-form-label'%>
+              <%= form.label "Select this Category", class: 'col-form-label'%>
             </div>
             <div class="col">
               <%= form.check_box :feature_in_navbar, class:'form-control' %>

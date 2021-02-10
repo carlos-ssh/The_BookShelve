@@ -1,5 +1,10 @@
-<h1>New Category</h1>
+<div class="container">
+  <div class="container">
+    <h1 class="bold px-5 mx-5">New Category</h1>
 
-<%= render 'form', category: @category %>
-
-<%= link_to 'Back', categories_path %>
+    <%= render 'form', category: @category %>
+    <div class="container mx-5 px-5">
+      <%= link_to 'Back', categories_path, class:'ml-3 btn btn-warning' %>
+    </div>
+  </div>
+</div>

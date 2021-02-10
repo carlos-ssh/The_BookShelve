@@ -1,5 +1,16 @@
-<h1>New Post</h1>
+<div class="container">
+  <div class="container">
+    <h1 class="bold mb-5">New Post</h1>
 
-<%= render 'form', post: @post %>
+    <div class="container my-5">
+      <%= render 'form', post: @post %>
+    </div>
 
-<%= link_to 'Back', posts_path %>
+    <div class="container">
+      <div class="container ml-3">
+        <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
+      </div>
+    </div>
+
+  </div>
+</div>

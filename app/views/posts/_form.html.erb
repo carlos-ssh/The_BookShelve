@@ -10,33 +10,63 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="container">
+  <div class="container">
+    <div class="form-group">
+      <%= form.label :title, class:'bold' %>
+    <br>
+      <%= form.text_field :title, class:'form-control w-25' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :review %>
-    <%= form.rich_text_area :review %>
+  <div class="container my-3">
+    <div class="field">
+      <%= form.label :review, class:'bold' %>
+      <%= form.rich_text_area :review %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.text_field :rating %>
+  <div class="container my-3">
+    <div class="field">
+      <%= form.label :rating, class:'bold' %>
+      <%= form.text_field :rating, class:'form-control w-25' %>
+    </div>
+  </div>
+  
+  <div class="container my-5">
+    <div class="form-group">
+      <%= form.label :categories, class:'bold' %>
+    <br>
+      <%= form.collection_select :category_ids, @categories, :id, :name, {}, { multiple: true, class:'form-control w-25' } %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :categories %>
-    <%= form.collection_select :category_ids, @categories, :id, :name, {}, { multiple: true } %>
+  <div class="container">
+    <div class="form-group">
+      <%= form.label :image, class:'bold' %>
+    <br>
+      <%= form.file_field :image, class:'form-control-file' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+  <div class="container mt-5">
+    <div class="actions">
+      <%= form.submit(class:'btn btn-primary') %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <% end %>

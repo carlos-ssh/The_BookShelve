@@ -1,27 +1,33 @@
-<%= form_with(model: category) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation" class="container">
-      <h2 class=""><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<div class="container px-5 mx-5">
+  <div class="container form-group">
+    <%= form_with(model: category) do |form| %>
+    <% if category.errors.any? %>
+      <div id="error_explanation" class="container">
+        <h2 class="bold"><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% category.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:'form-control w-25' %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field">
+      <%= form.label "Set this Category in Navbar: ", class:'my-3' %>
+      <%= form.check_box :feature_in_navbar %>
+    </div>
 
-  <div class="field">
-    <%= form.label :feature_in_navbar %>
-    <%= form.check_box :feature_in_navbar %>
-  </div>
+    <div class="actions">
+      <%= form.submit(class: 'btn btn-primary') %>
+    </div>
+    <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
   </div>
-<% end %>
+</div>
+
