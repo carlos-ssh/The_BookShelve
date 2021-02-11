@@ -27,9 +27,11 @@ footer {
     bottom: 0;
     left: 0;
     width: 100vw;
+    z-index: 100;
 }
 
-a {
+a,
+.head {
     color: #fd6000;
     text-decoration: none;
 }
@@ -48,17 +50,19 @@ a {
     text-decoration: none;
 }
 
-.grr2 {
-    width: 40vw;
-    height: 60vh;
+.imgc {
+    height: 641px;
 }
 
-.grr3 {
-    width: 17vw;
-    height: 45vh;
+.imgc1 {
+    height: 500px;
+}
+
+.divs {
+    opacity: 0.5;
 }
 
 .img {
-    height: 433px;
+    height: 448px;
     width: 270px;
 }
