@@ -17,3 +17,48 @@
 @import "actiontext.scss";
 @import "categories.scss";
 @import "posts.scss";
+body {
+    background-color: #4e443e;
+}
+
+footer {
+    background-color: #1a1f24;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+
+a {
+    color: #fd6000;
+    text-decoration: none;
+}
+
+.txt,
+.time {
+    color: #fd6000;
+}
+
+.btnc {
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #fd6000;
+    text-decoration: none;
+}
+
+.grr2 {
+    width: 40vw;
+    height: 60vh;
+}
+
+.grr3 {
+    width: 17vw;
+    height: 45vh;
+}
+
+.img {
+    height: 433px;
+    width: 270px;
+}

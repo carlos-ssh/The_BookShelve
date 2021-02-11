@@ -1,13 +1,13 @@
-<div class="search-container mb-5">
+<div class="search-container px-5 py-5 d-flex">
   <%= form_tag(posts_search_path, remote: true) do %>
-    <div class="field text-center">
-        <%= label_tag :category, "Category: ", class: ('mx-auto display-4 bold') %>
+    <div class="field text-center d-flex ">
+      <%= label_tag :category, "Category: ", class: ('mx-auto bold txt px-3 pt-2 mt-1') %>
       
-        <%= select_tag :category, options_from_collection_for_select(
+      <%= select_tag :category, options_from_collection_for_select(
           @categories.to_a.unshift(Category.new(id: 0, name: "All")),
           "name",
           "name",
-          "0"), class: 'form-control' %>
+          "0"), class: 'form-control px-3 mt-2' %>
       
       <%= select_tag :order, options_for_select([ 
           "A-Z",
@@ -16,8 +16,8 @@
           "Lowest Rating First",
           "Newer First",
           "Oldest First"
-      ]), {include_blank: "Order ", class: 'form-control my-2'} %>
-      <%= submit_tag "Search", class: 'btn btn-primary text-center d-flex mx-auto'%>
+      ]), {include_blank: "Order ", class: 'form-control px-2 ml-2 mt-2'} %>
+      <%= submit_tag "Search", class: 'btnc text-center d-flex ml-3 mb-4'%>
   </div>
   <% end %>
 </div>

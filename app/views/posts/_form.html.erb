@@ -1,72 +1,56 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="container bg-white">
+  <div class="bg-white rounded py-5 px-5">
+    <%= form_with(model: post) do |form| %>
+      <% if post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+          <ul>
+            <% post.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <div class="container">
+      <div class="container">
+        <div class="form-group">
+          <%= form.label :title, class:'bold' %>
+        <br>
+          <%= form.text_field :title, class:'form-control w-25' %>
+        </div>
+      </div>
+      <div class="container my-3">
+        <div class="field">
+          <%= form.label :review, class:'bold' %>
+          <%= form.rich_text_area :review %>
+        </div>
+      </div>
+      <div class="container my-3">
+        <div class="field">
+          <%= form.label :rating, class:'bold' %>
+          <%= form.text_field :rating, class:'form-control w-25' %>
+        </div>
+      </div>    
+      <div class="container my-5">
+        <div class="form-group">
+          <%= form.label :categories, class:'bold' %>
+        <br>
+          <%= form.collection_select :category_ids, @categories, :id, :name, {}, { multiple: true, class:'form-control w-25' } %>
+        </div>
+      </div>
+      <div class="container">
+        <div class="form-group">
+          <%= form.label :image, class:'bold' %>
+        <br>
+          <%= form.file_field :image, class:'form-control-file' %>
+        </div>
+      </div>
+      <div class="container mt-5">
+        <div class="actions">
+          <%= form.submit(class:'btn btn-primary') %>
+        </div>
+      </div>
     </div>
-  <% end %>
-<div class="container">
-  <div class="container">
-    <div class="form-group">
-      <%= form.label :title, class:'bold' %>
-    <br>
-      <%= form.text_field :title, class:'form-control w-25' %>
-    </div>
+    <% end %>
   </div>
-
-  <div class="container my-3">
-    <div class="field">
-      <%= form.label :review, class:'bold' %>
-      <%= form.rich_text_area :review %>
-    </div>
-  </div>
-
-  <div class="container my-3">
-    <div class="field">
-      <%= form.label :rating, class:'bold' %>
-      <%= form.text_field :rating, class:'form-control w-25' %>
-    </div>
-  </div>
-  
-  <div class="container my-5">
-    <div class="form-group">
-      <%= form.label :categories, class:'bold' %>
-    <br>
-      <%= form.collection_select :category_ids, @categories, :id, :name, {}, { multiple: true, class:'form-control w-25' } %>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="form-group">
-      <%= form.label :image, class:'bold' %>
-    <br>
-      <%= form.file_field :image, class:'form-control-file' %>
-    </div>
-  </div>
-
-  <div class="container mt-5">
-    <div class="actions">
-      <%= form.submit(class:'btn btn-primary') %>
-    </div>
-  </div>
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<% end %>

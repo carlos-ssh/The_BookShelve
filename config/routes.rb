@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  root 'posts#index'
+  root 'home#home'
 
   post 'posts/search'
   resources :categories

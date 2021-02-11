@@ -1,25 +1,25 @@
-<div class="container">
+<div class="container bg-white my-5 py-5 rounded">
   <div class="row">
-    <div class="col-4">
+    <div class="col-4 pl-5">
       <%= image_tag(@post.image, class:'img-fluid') if @post.image.attached? %>
       <div class="row">
-        <div class="col-12">
-            <h4>
-                [<%= @post.rating %>/10 ]
+        <div class="col-12 ml-4 pl-4 pt-2">
+            <h4 class="">
+                Rating: [<%= @post.rating %>/10 ]
             </h4>
         </div>
         <div class="col-12">
-          <h5>
-            <div id="like-count">
+          <h5 class="d-flex mx-1">
+            <div id="like-count" class="col-6">
               <%= render 'posts/likes', post: @post %>
             </div>
-            <div id="like-link">
+            <div id="like-link" class="col-6">
               <%= render 'posts/like_link', post: @post %>
             </div>
-            <hr>
           </h5>
         </div>
     </div>
+    <hr>
     <div class="row">
       <div class="col-12">
         <h6>
@@ -29,29 +29,34 @@
       </div>
       <% @post.categories.each do |category| %>
       <div class="col-6">
-          <%= link_to category.name, root_path(category: category.name) %>
+          <%= link_to category.name, posts_path(category: category.name) %>
       </div>
       <% end %>
         <div class="col-12">
         <% if current_user&.admin %>
-        <div class="btn-group">
-          <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-warning' %>
-          <%= link_to "Delete", @post, method: :delete, class: 'btn btn-danger' %>
+        <div class="btn-group my-3">
+          <%= link_to "Back", posts_path, class: 'btn btn-primary mx-1 rounded' %>
+          <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-warning mx-1 rounded' %>
+          <%= link_to "Delete", @post, method: :delete, class: 'btn btn-danger mx-1 rounded' %>
         </div>
         <% end %>
         </div>
       </div>
     </div>
     <div class="col-8">
-      <h1>
-        <% if params[:category].nil? %>
-          <%= link_to @post.title, root_path %>
-        <% else %>
-          <%= link_to @post.title, root_path(category: params[:category], order: params[:order]) %>
-        <% end %>
-      </h1>
       <div class="container">
-          <%= @post.review %>
+        <div class="container py-5">
+          <h1 class="text-center pb-3">
+            <% if params[:category].nil? %>
+              <%= link_to @post.title, posts_path, class: ' text-center' %>
+            <% else %>
+              <%= link_to @post.title, posts_path(category: params[:category], order: params[:order]) %>
+            <% end %>
+          </h1>
+          <div class="container">
+            <%= @post.review %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

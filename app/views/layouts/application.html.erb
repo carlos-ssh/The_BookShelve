@@ -15,12 +15,14 @@
   <body>
     
     <%= render 'layouts/navbar' %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <%= render 'layouts/alerts' if !flash.empty? %>
+    
     <%= yield %>
 
     <%= render 'layouts/scripts' %>
+    
+    <footer>
+      <%= render 'layouts/footer'%>
+    </footer>
   </body>
 </html>

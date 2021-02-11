@@ -1,16 +1,25 @@
-<div class="container">
-  <div class="container">
-    <h1 class="bold mb-5">New Post</h1>
+<div class="bg-secondary py-5">
+  <div class="bg-secondary">
+    <div class="container bg-white rounded">
+      <div class="container">
+        <div class="container">
+          <div class="container">
+            <div class="ml-5">
+              <h1 class="bold py-5 ml-4 pl-3 display-4">New Post</h1>
+            </div>
+            <%= render 'form', post: @post %>
+          </div>
 
-    <div class="container my-5">
-      <%= render 'form', post: @post %>
-    </div>
+          <div class="container">
+            <div class="container ml-5">
+              <div class="container ml-3 pb-5">
+                <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
+              </div>
+            </div>
+          </div>
 
-    <div class="container">
-      <div class="container ml-3">
-        <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
