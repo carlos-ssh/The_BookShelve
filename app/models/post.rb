@@ -3,6 +3,10 @@ class Post < ApplicationRecord
   has_one_attached :image
   has_rich_text :review
 
-  validates :title, :review, :image, presence: true
+  validates :title, presence: true, length: { minimum: 2 }
+  validates :review, presence: true, length: { in: 5..250 }
+  validates :image, presence: true
+  validates :rating, numericality: { only_integer: true }
+  
   acts_as_votable
 end
