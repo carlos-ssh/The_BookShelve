@@ -1,14 +1,14 @@
-# frozen_string_literal: true
-
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   before_action :set_featured
-  helper_method :is_admin!
+  helper_method :administrador
 
   def set_featured
     @featured = Category.where(feature_in_navbar: true).order('name ASC')
   end
 
-  def is_admin!
+  def administrador
     redirect_to root_path unless current_user&.admin
   end
 

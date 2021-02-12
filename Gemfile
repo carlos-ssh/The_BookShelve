@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -23,11 +21,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+# Read more here: https://ddnexus.github.io/pagy/how-to#quick-start
+gem 'pagy', '~> 3.10'
 # Use Active Storage variant
-gem 'image_processing', '~> 1.2'
-gem 'aws-sdk-s3', '~> 1.87'
 gem 'active_storage_validations', '~> 0.9.2'
+gem 'aws-sdk-s3', '~> 1.87'
+gem 'image_processing', '~> 1.2'
 
 gem 'acts_as_votable'
 gem 'devise'
@@ -40,6 +39,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
 end
 
 group :development do
