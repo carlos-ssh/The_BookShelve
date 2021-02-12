@@ -7,7 +7,6 @@ RSpec.describe Post, type: :model do
       title: '',
       review: 'A valid Review',
       rating: 0,
-      image: true
     )
     expect(post).to_not be_valid
     post.title = 'A valid Title'
@@ -19,7 +18,6 @@ RSpec.describe Post, type: :model do
       title: 'A valid Title',
       review: '',
       rating: 0,
-      image: true
     )
     expect(post).to_not be_valid
     post.review = 'A valid review'
@@ -31,7 +29,6 @@ RSpec.describe Post, type: :model do
       title: 'A valid Title',
       review: '',
       rating: 0,
-      image: true
     )
     expect(post).to_not be_valid
 
@@ -44,7 +41,6 @@ RSpec.describe Post, type: :model do
       title: 'A valid Title',
       review: '',
       rating: 0,
-      image: true
     )
     expect(post).to_not be_valid
     post.review = 'valid'
@@ -66,7 +62,6 @@ RSpec.describe Post, type: :model do
       title: 'A valid Title',
       review: 'A valid Review',
       rating: 0,
-      image: true
     )
     expect(post).to be_a(Integer)
   end
