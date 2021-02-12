@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
+
+SimpleCov.start('rails') do
+  minimum_coverage 5
+  maximum_coverage_drop 2
+end
+
 require 'rails_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
