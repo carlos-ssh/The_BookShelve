@@ -7,6 +7,7 @@ RSpec.describe Post, type: :model do
       title: '',
       review: 'A valid Review',
       rating: 0,
+      image: attachable
     )
     expect(post).to_not be_valid
     post.title = 'A valid Title'
@@ -18,17 +19,20 @@ RSpec.describe Post, type: :model do
       title: 'A valid Title',
       review: '',
       rating: 0,
+      image: attachable
     )
     expect(post).to_not be_valid
     post.review = 'A valid review'
     expect(post).to be_valid
   end
 
+
   it 'Has a Title at least 2 characters minimum' do
     post = Post.new(
       title: 'A valid Title',
       review: '',
       rating: 0,
+      image: attachable
     )
     expect(post).to_not be_valid
 
@@ -36,11 +40,13 @@ RSpec.describe Post, type: :model do
     expect(post).to be_valid
   end
 
-  it 'Has a Review between 5 and 250 characters' do
+
+  it 'Has a Review between 5..250 characters' do
     post = Post.new(
       title: 'A valid Title',
       review: '',
       rating: 0,
+      image: attachable
     )
     expect(post).to_not be_valid
     post.review = 'valid'
@@ -62,6 +68,7 @@ RSpec.describe Post, type: :model do
       title: 'A valid Title',
       review: 'A valid Review',
       rating: 0,
+      image: attachable
     )
     expect(post).to be_a(Integer)
   end
