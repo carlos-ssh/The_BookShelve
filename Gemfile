@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # Read more here: https://ddnexus.github.io/pagy/how-to#quick-start
 gem 'pagy', '~> 3.10'
+gem 'yarn', '~> 0.1.1'
+gem 'optimist', '~> 3.0', '>= 3.0.1'
 # Use Active Storage variant
 gem 'active_storage_validations', '~> 0.9.2'
 gem 'aws-sdk-s3', '~> 1.87'
