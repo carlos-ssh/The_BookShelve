@@ -333,6 +333,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   simplecov (~> 0.21.2)
+  spring (~> 2.1)
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
