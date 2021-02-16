@@ -80,7 +80,10 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") {5} %>
   database: the_bookshelve_production
-  username: the_bookshelve
-  password: <%= ENV['THE_BOOKSHELVE_DATABASE_PASSWORD'] %>
+  username: carlos-ssh
+  password: <%= ENV['MY_APP_DATABASE_PASSWORD'] %>
+
