@@ -34,7 +34,7 @@ gem 'acts_as_votable'
 gem 'devise'
 gem 'simple_form'
 
-gem 'rake'
+gem 'rake', '~> 13.0', '>= 13.0.3'
 
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1'
 # Reduces boot times through caching; required in config/boot.rb
