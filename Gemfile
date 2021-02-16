@@ -34,6 +34,7 @@ gem 'devise'
 gem 'simple_form'
 
 gem 'spring', '~> 2.1'
+gem 'rack-timeout'
 
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1'
 # Reduces boot times through caching; required in config/boot.rb
