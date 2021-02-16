@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Read more here: https://ddnexus.github.io/pagy/how-to#quick-start
 gem 'pagy', '~> 3.10'
 gem 'yarn', '~> 0.1.1'
-gem 'optimist', '~> 3.0', '>= 3.0.1'
+
 # Use Active Storage variant
 gem 'active_storage_validations', '~> 0.9.2'
 gem 'aws-sdk-s3', '~> 1.87'
@@ -34,11 +34,12 @@ gem 'acts_as_votable'
 gem 'devise'
 gem 'simple_form'
 
-gem 'rake', '~> 13.0', '>= 13.0.3'
 
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'listen', '~> 3.3'
+gem 'rack', '~> 2.2', '>= 2.2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,17 +48,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
   gem 'factory_bot_rails', '~> 6.1'
   gem 'simplecov', '~> 0.21.2'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'listen', '~> 3.3'
-  gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
 
 group :test do
@@ -66,6 +64,12 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rake', '~> 13.0', '>= 13.0.3'
+  gem 'optimist', '~> 3.0', '>= 3.0.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
