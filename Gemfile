@@ -26,7 +26,7 @@ gem 'pagy', '~> 3.10'
 
 # Use Active Storage variant
 gem 'active_storage_validations', '~> 0.9.2'
-gem 'aws-sdk-s3', '~> 1.87'
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 gem 'image_processing', '~> 1.2'
 
 gem 'acts_as_votable'
