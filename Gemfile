@@ -30,6 +30,7 @@ gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 gem 'fog-aws', '~> 3.8'
 gem 'image_processing', '~> 1.2'
 gem 'carrierwave', '~> 2.1', '>= 2.1.1'
+gem 'rails_12factor', '~> 0.0.3'
 
 gem 'acts_as_votable'
 gem 'devise'
