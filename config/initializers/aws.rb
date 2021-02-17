@@ -1,8 +1,7 @@
-
-S3Client = Aws::S3::Client.new(
-  access_key_id: 'S3_KEY',
-  secret_access_key: 'S3_SECRET',
-  region: 'us-east-2'
-) 
+Aws.config.update({
+  region: 'us-east-2',
+  name: 'tbs',
+  credentials: Aws::Credentials.new(ENV['S3_KEY'], ENV['S3_SECRET']),
+})
 
 S3_BUCKET = Aws::S3::Resource.new.bucket(ENV['S3_BUCKET'])
