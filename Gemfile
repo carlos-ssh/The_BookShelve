@@ -26,11 +26,12 @@ gem 'pagy', '~> 3.10'
 
 # Use Active Storage variant
 gem 'active_storage_validations', '~> 0.9.2'
-gem 'aws-sdk', '~> 3.0', '>= 3.0.1', require: false
-gem 'aws-sdk-s3', '~> 1.88', '>= 1.88.1', require: false
+#gem 'aws-sdk', '~> 3.0', '>= 3.0.1', require: false
+#gem 'aws-sdk-s3', '~> 1.88', '>= 1.88.1', require: false
 gem 'image_processing', '~> 1.2'
-gem 'active_storage_validations', '~> 0.9.2'
 gem 'rails_12factor', '~> 0.0.3'
+gem 'carrierwave'
+gem 'cloudinary'
 
 gem 'acts_as_votable'
 gem 'devise'
