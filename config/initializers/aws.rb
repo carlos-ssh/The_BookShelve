@@ -1,7 +1,7 @@
-Aws.config.update({
-  region: 'us-east-2',
-  name: 'tbs',
-  credentials: Aws::Credentials.new(ENV['S3_KEY'], ENV['S3_SECRET']),
-})
-
-S3_BUCKET = Aws::S3::Resource.new.bucket(ENV['S3_BUCKET'])
+amazon_prod:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.aws[:access_key_id] %>
+  secret_access_key:
+    <%= Rails.application.credentials.aws[:secret_access_key] %>
+  region: <%= Rails.application.credentials.aws[:region] %>
+  bucket: <%= Rails.application.credentials.aws[:prod][:bucket] %>
