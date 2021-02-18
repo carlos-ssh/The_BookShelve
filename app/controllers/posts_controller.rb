@@ -75,7 +75,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :review, :rating, :image_attacher, category_ids: [])
+    params.require(:post).permit(:title, :review, :rating, :image, category_ids: [])
   end
 
   def set_posts_and_categories_with_criteria(requested_category, requested_order)
