@@ -66,8 +66,6 @@ class PostsController < ApplicationController
 
   private
 
-
-
   def set_post
     @post = Post.find(params[:id])
   end
@@ -77,12 +75,12 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :review, :rating, :image, category_ids: [])
+    params.require(:post).permit(:title, :review, :rating, :image_attacher, category_ids: [])
   end
 
   def set_posts_and_categories_with_criteria(requested_category, requested_order)
     if requested_category.nil? || requested_category.eql?('All')
-      @pagy, posts_by_category = pagy(Post.all)
+      posts_by_category = Post.all
       @category_name = 'All'
     else
       posts_by_category = filter_posts_by_category(requested_category)

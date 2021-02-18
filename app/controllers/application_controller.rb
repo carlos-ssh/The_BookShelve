@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Pagy::Backend
-
   before_action :set_featured
   helper_method :administrador
 

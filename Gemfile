@@ -28,9 +28,10 @@ gem 'pagy', '~> 3.10'
 gem 'active_storage_validations', '~> 0.9.2'
 #gem 'aws-sdk', '~> 3.0', '>= 3.0.1', require: false
 #gem 'aws-sdk-s3', '~> 1.88', '>= 1.88.1', require: false
+#gem 'carrierwave'
 gem 'image_processing', '~> 1.2'
-gem 'rails_12factor', '~> 0.0.3'
-gem 'carrierwave'
+gem 'shrine', '~> 3.3'
+gem 'shrine-cloudinary', '~> 1.1', '>= 1.1.1'
 gem 'cloudinary'
 
 gem 'acts_as_votable'
@@ -40,6 +41,7 @@ gem 'simple_form'
 gem 'spring', '~> 2.1'
 gem 'rack-timeout'
 
+gem 'rails_12factor', '~> 0.0.3'
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -54,6 +56,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.1'
   gem 'simplecov', '~> 0.21.2'
   gem 'web-console', '>= 3.3.0'
+  gem 'dotenv-rails'
 end
 
 group :development do
