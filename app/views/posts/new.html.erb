@@ -1,25 +1,17 @@
-<div class="bg-secondary py-5">
+<div class="bg-secondary py-5 mb-5">
   <div class="bg-secondary">
     <div class="container bg-white rounded">
-      <div class="container">
         <div class="container">
           <div class="container">
-            <div class="ml-5">
-              <h1 class="bold py-5 ml-4 pl-3 display-4">New Post</h1>
+            <div class="ml-5 pt-3">
+              <h1 class="bold ml-4 pl-3 display-4">New Post</h1>
             </div>
             <%= render 'form', post: @post %>
-          </div>
-
-          <div class="container">
-            <div class="container ml-5">
-              <div class="container ml-3 pb-5">
-                <%= link_to 'Back', posts_path, class: 'btn btn-warning'%>
-              </div>
+            <div class="container ml-5 pb-5">
+              <%= link_to 'Back', posts_path, class: 'btn btn-warning ml-4'%>
             </div>
           </div>
-
         </div>
-      </div>
     </div>
   </div>
 </div>
