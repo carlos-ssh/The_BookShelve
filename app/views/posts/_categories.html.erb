@@ -4,7 +4,7 @@
       <% if post.image.attached? %>
     <div class="card-horizontal">
         <div class="col-5 img-square-wrapper">
-            <%= link_to image_tag(post.image, class:'card-img-top img-fluid', :size => '260x180'), post_path(post, category: @category_name, order: @order) %>
+            <%= link_to image_tag(post.image.url, class:'card-img-top img-fluid', :size => '260x180'), post_path(post, category: @category_name, order: @order) %>
         </div>
         <div class="card-body col-7">
             <h4 class="card-title text-center"><%= link_to post.title, post_path(post) %></h4>
