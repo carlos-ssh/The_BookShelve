@@ -1,10 +1,15 @@
-<div class="container bg-white py-5">
+<div class="container bg-white mt-5 rounded">
   <div class="container py-5">
-    <h1 class="bold px-5 mx-5">New Category</h1>
-
-    <%= render 'form', category: @category %>
-    <div class="container mx-5 px-5 py-5">
-      <%= link_to 'Back', categories_path, class:'ml-3 btn btn-warning' %>
+    <div class="container-fluid ml-5 pl-5 mr-5 pr-5">
+      <div class="container-fluid ml-5 pl-5 mr-5 pr-5">
+        <div class="container-fluid ml-5 pl-5 mr-5 pr-5">
+          <h1 class="bold px-5 mx-5">New Category</h1>
+          <%= render 'form', category: @category %>
+        <div class="container-fluid ml-5 pl-5 mr-5 pr-5">
+          <%= link_to 'Back', categories_path, class:'ml-3 btn btn-warning' %>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
