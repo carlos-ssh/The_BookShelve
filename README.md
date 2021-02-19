@@ -15,15 +15,15 @@
     <img src="https://avatars1.githubusercontent.com/u/22258274?s=40&u=4b0efdeaefba270cb9e54efb81e7f77057f69789&v=4" alt="Logo" width="40" height="40">
   </a>
 
-  <h3 align="center">Stay in Touch</h3>
+  <h3 align="center">The BookShelve</h3>
 
   <p align="center">
-    This is a Milestone project.
+    This is a Capstone project.
     <br />
     <a href="https://github.com/carlos-ssh/ror-social-scaffold/blob/feature/docs/SOCIAL%20MEDIA%20RoR.svg"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://app-socialmedia.herokuapp.com/">View Demo</a>
+    <a href="https://thebookshelve.herokuapp.com">View Demo</a>
     ·
     <a href="https://github.com/carlos-ssh/ror-social-scaffold/issues">Report Bug</a>
     ·
@@ -115,7 +115,7 @@ explore the application
 
 - Ruby v2.7.2
 - Ruby on Rails v6.1.1
-- Postgres: >=12
+- Postgres: >=11
 
 Installations:
 
@@ -162,6 +162,12 @@ User.first.update(admin: true)
 ``` 
 This will enable the admin functions.
 #
+
+## Usage in Deployed App (Admin User)
+
+- Admin Account is: email: admin@example.com
+password: 123123
+#
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -190,6 +196,7 @@ bundle exec rspec
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
+#
 ## Authors
 👤 Carlos Robles
 - Github: [Carlos-SSH](https://github.com/carlos-ssh)
