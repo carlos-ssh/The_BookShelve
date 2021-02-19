@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_rich_text :review
 
   validates :title, presence: true, length: { minimum: 2 }
-  validates :review, presence: true, length: { in: 5..1000 }
+  validates :review, presence: true, length: { in: 5..2000 }
   validates :image, presence: true
   validates :rating, numericality: { only_integer: true }
   
