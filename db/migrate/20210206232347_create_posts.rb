@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
     create_table :posts do |t|
       t.string :title
       t.text :review
-      t.decimal :rating, precision: 1, scale: 1
+      t.decimal :rating, scale: 1
 
       t.timestamps
     end
