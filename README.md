@@ -27,6 +27,10 @@
     ·
     <a href="https://www.loom.com/share/9990569b16c648ee9f1ad538df03057a">View the Video</a>
     ·
+    <a href="https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version">Design for this Project</a>
+    ·
+    <a href="https://www.notion.so/carlosrobles/RoR-Capstone-LifeStyle-d09045cdb2484d9d9337061bd751f6a0#ced5077f38c8499e8d957556d7658f72">Requirements</a>
+    ·
     <a href="https://github.com/carlos-ssh/the_bookshelve/issues">Report Bug</a>
     ·
     <a href="https://github.com/carlos-ssh/the_bookshelve/issues">Request Feature</a>
