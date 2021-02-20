@@ -24,17 +24,17 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 gem 'active_storage_validations', '~> 0.9.2'
+gem 'cloudinary'
 gem 'image_processing', '~> 1.2'
 gem 'shrine', '~> 3.3'
 gem 'shrine-cloudinary', '~> 1.1', '>= 1.1.1'
-gem 'cloudinary'
 
 gem 'acts_as_votable'
 gem 'devise'
 gem 'simple_form'
 
-gem 'spring', '~> 2.1'
 gem 'rack-timeout'
+gem 'spring', '~> 2.1'
 
 gem 'rails_12factor', '~> 0.0.3'
 gem 'rubocop-rails', '~> 2.9', '>= 2.9.1'
@@ -47,11 +47,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
-  gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
+  gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 6.1'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
   gem 'simplecov', '~> 0.21.2'
   gem 'web-console', '>= 3.3.0'
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -70,9 +70,9 @@ group :test do
 end
 
 group :production do
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rake', '~> 13.0', '>= 13.0.3'
   gem 'optimist', '~> 3.0', '>= 3.0.1'
+  gem 'rake', '~> 13.0', '>= 13.0.3'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

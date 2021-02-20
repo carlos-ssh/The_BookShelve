@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  current_user = User.first_or_create!(email: 'carlos@example.com', password: '123123', password_confirmation: '123123')
-  
+  User.first_or_create!(email: 'carlos@example.com', password: '123123', password_confirmation: '123123')
+
   it 'Has a title' do
     post = Post.new(
       title: '',
@@ -25,7 +25,6 @@ RSpec.describe Post, type: :model do
     expect(post).to be_valid
   end
 
-
   it 'Has a Title at least 2 characters minimum' do
     post = Post.new(
       title: 'A valid Title',
@@ -37,7 +36,6 @@ RSpec.describe Post, type: :model do
     expect(post).to be_valid
   end
 
-
   it 'Has a Review between 5..500 characters' do
     post = Post.new(
       title: 'A valid Title',
@@ -47,10 +45,19 @@ RSpec.describe Post, type: :model do
     expect(post).to_not be_valid
     post.review = '123'
     expect(post).to be_valid
-    fiveoo_string = 'adgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjhbeimrfxfsumgumqkhsalyukyaqlmgljuadgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjkyaqlmgljuadgolmtpzxpohkhsalyuhksjkyaqlmgljuadgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjkyaqlmgljuadgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjkyaqlmgljukyaqlmgljuadgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjkyaqlmgljuadgolmtpzxpohkhsalyuhksjkyaqlmgljuadgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjkyaqlmgljuadgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjkyaqlmgljuwerwertwertwertsdfvbsdfgbdfgjhhjfghjertyerty12345'
+    fiveoo_string = 'adgohbeimrfxfsumgumqlmtpzxpohkhsal
+    yuhksjhbeimrfxfsumgumqkhsalyukyaqlmgljuadgohbeimrfx
+    fsumgumqlmtpzxpohkhsalyuhksjkyaqlmgljuadgolmtpzxpohk
+    hsalyuhksjkyaqlmgljuadgohbeimrfxfsumgumqlmtpzxpohkhs
+    alyuhksjkyaqlmgljuadgohbeimrfxfsumgumqlmtpzxpohkhsal
+    yuhksjkyaqlmgljukyaqlmgljuadgohbeimrfxfsumgumqlmtpzx
+    pohkhsalyuhksjkyaqlmgljuadgolmtpzxpohkhsalyuhksjkyaq
+    lmgljuadgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjkyaqlm
+    gljuadgohbeimrfxfsumgumqlmtpzxpohkhsalyuhksjkyaqlmgl
+    juwerwertwertwertsdfvbsdfgbdfgjhhjfghjertyerty12345'
     post.review = fiveoo_string
     expect(post).to be_valid
-    post.review = fiveoo_string + '1'
+    post.review = "#{fiveoo_string}1"
     expect(post).to_not be_valid
   end
 
@@ -62,5 +69,4 @@ RSpec.describe Post, type: :model do
     )
     expect(post).to be_a(Integer)
   end
-
 end
