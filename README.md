@@ -25,9 +25,11 @@
     <br />
     <a href="https://thebookshelve.herokuapp.com">View Demo</a>
     ·
-    <a href="https://github.com/carlos-ssh/ror-social-scaffold/issues">Report Bug</a>
+    <a href="https://www.loom.com/share/9990569b16c648ee9f1ad538df03057a">View the Video</a>
     ·
-    <a href="https://github.com/carlos-ssh/ror-social-scaffold/issues">Request Feature</a>
+    <a href="https://github.com/carlos-ssh/the_bookshelve/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/carlos-ssh/the_bookshelve/issues">Request Feature</a>
   </p>
 </p>
 
