@@ -39,6 +39,8 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+CyclomaticComplexity:
+  Max: 9
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
