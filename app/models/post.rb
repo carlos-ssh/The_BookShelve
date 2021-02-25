@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { minimum: 2 }
   validates :review, presence: true, length: { in: 5..2000 }
   validates :image, presence: true
-  validates :rating, numericality: { only_integer: true }
+  validates :rating, numericality: { only_integer: true, less_than_or_equal_to: 10 }
 
   acts_as_votable
 end

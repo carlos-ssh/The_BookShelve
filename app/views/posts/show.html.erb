@@ -4,8 +4,7 @@
       <%= image_tag(@post.image, class:'img-fluid') if @post.image %>
       <div class="row">
         <div class="col-12 ml-4 pl-4 pt-2">
-          <div class="container my-3 post-rating" data-score="<%= @post.rating %>">
-          </div>
+          <%= @post.rating %>
         </div>
         <div class="col-12">
           <h5 class="d-flex mx-1">
