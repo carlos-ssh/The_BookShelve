@@ -37,7 +37,7 @@ gem 'rack-timeout'
 gem 'spring', '~> 2.1'
 
 gem 'rails_12factor', '~> 0.0.3'
-gem 'rubocop-rails', '~> 2.9', '>= 2.9.1'
+gem 'rubocop', '~> 0.81'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'listen', '~> 3.3'

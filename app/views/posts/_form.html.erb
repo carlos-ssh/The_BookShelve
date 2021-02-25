@@ -22,9 +22,11 @@
       <div class="container my-3">
         <div class="field">
           <%= form.label :review, class:'bold' %>
-          <%= form.rich_text_area :review %>
+          <br>
+          <%= form.text_area :review, class:'form-control w-75 h-100' %>
         </div>
       </div>
+
       <div class="container my-3">
         <div class="field">
           <%= form.label :rating, class:'bold' %>

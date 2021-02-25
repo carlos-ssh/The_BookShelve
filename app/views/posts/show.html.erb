@@ -4,9 +4,8 @@
       <%= image_tag(@post.image, class:'img-fluid') if @post.image %>
       <div class="row">
         <div class="col-12 ml-4 pl-4 pt-2">
-            <h4 class="">
-                Rating: [<%= @post.rating %>/10 ]
-            </h4>
+          <div class="container my-3 post-rating" data-score="<%= @post.rating %>">
+          </div>
         </div>
         <div class="col-12">
           <h5 class="d-flex mx-1">
@@ -33,7 +32,7 @@
       </div>
       <% end %>
         <div class="col-12">
-        <% if current_user&.admin %>
+        <% if current_user %>
         <div class="btn-group my-3">
           <%= link_to "Back", posts_path, class: 'btn btn-primary mx-1 rounded' %>
           <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-warning mx-1 rounded' %>
@@ -64,3 +63,4 @@
     </div>
   </div>
 </div>
+

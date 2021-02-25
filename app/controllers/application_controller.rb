@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def administrador
-    redirect_to root_path unless current_user&.admin
+    redirect_to root_path unless current_user
   end
 
   def bi_icon(icon, options = {})

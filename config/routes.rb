@@ -11,4 +11,9 @@ Rails.application.routes.draw do
       put 'like' => 'posts#like'
     end
   end
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  
 end

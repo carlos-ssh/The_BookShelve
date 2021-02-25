@@ -27,7 +27,7 @@
             <%= current_user.username %>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <% if current_user.admin %>
+            <% if current_user %>
               <%= link_to "Create New Post", new_post_path, class: "dropdown-item" %>
               <%= link_to "Create New Category", new_category_path, class: "dropdown-item" %>
               <%= link_to "Manage Categories", categories_path, class: "dropdown-item" %>
