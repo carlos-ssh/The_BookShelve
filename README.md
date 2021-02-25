@@ -85,7 +85,7 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 -->
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+In this section you will find a list of technologies used in this project.
 
 Development:
 * [RoR](https://rubyonrails.org/)
@@ -130,6 +130,10 @@ Installations:
   ```sh
   bundle install
   ```
+* Create DB:
+  ```sh
+  rails db:create
+  ```
 * Migrate DB:
   ```sh
   rails db:migrate
@@ -138,13 +142,18 @@ Installations:
   ```sh
   rails server
   ```
+* Open live demo with this link in your browser:
+  ```sh
+  localhost:3000
+  ```
+#
 * *** __if you already have using port 3000:__
   ```sh
   rails server -p 3030
   ````
 Where the number beside -p flag can be any port you want.
 
-
+#
 <!-- USAGE EXAMPLES -->
 ## Usage
 
