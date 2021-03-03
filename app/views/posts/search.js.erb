@@ -2,4 +2,4 @@ var categories = document.getElementById("categories");
 var posts = document.getElementById("posts");
 window.history.replaceState(null, null, "?category=<%= @category_name %>?order=<%= @order%>");
 
-categories.innerHTML = "<%= j render '../posts/categories' %>";
+categories.innerHTML = "<%= j render 'posts/categories' %>";
