@@ -8,4 +8,6 @@ class Post < ApplicationRecord
   validates :rating, numericality: { only_integer: true, less_than_or_equal_to: 10 }
 
   acts_as_votable
+
+  belongs_to :user
 end

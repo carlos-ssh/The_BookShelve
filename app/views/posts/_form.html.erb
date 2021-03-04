@@ -14,6 +14,7 @@
     <div class="container">
       <div class="container">
         <div class="form-group">
+          <%= form.hidden_field :user_id , :value => current_user.id %>
           <%= form.label :title, class:'bold' %>
         <br>
           <%= form.text_field :title, class:'form-control w-25' %>
@@ -35,9 +36,14 @@
       </div>    
       <div class="container my-5">
         <div class="form-group">
-          <%= form.label :categories, class:'bold' %>
-        <br>
-          <%= form.collection_select :category_ids, @categories, :id, :name, {}, { multiple: true, class:'form-control w-25' } %>
+            <%= form.label :categories, class:'bold' %>
+          <br>
+            <%= form.collection_select :category_ids, @categories, :id, :name, {}, { multiple: true, class:'form-control w-25' } %>
+          <br>
+          <p class="font-italic"> 
+            Do you didn't found a category? 
+          <%= link_to "Click Here", new_category_path %>
+          </p>
         </div>
       </div>
       <div class="container">
