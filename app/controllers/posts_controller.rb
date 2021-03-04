@@ -94,22 +94,22 @@ class PostsController < ApplicationController
     end
   end
 
-  def order_posts(order, posts)
-    @posts = case order
-             when 'A-Z'
-               posts.order('title ASC')
-             when 'Z-A'
-               posts.order('title DESC')
-             when 'Higest Rating First'
-               posts.order('rating DESC')
-             when 'Lowest Rating First'
-               posts.order('rating ASC')
-             when 'Newer First'
-               posts.order('created_at DESC')
-             when 'Oldest First'
-               posts.order('created_at ASC')
-             else
-               posts.order('title ASC')
-             end
+  def order_posts(_order, _posts)
+    @posts = case _order
+            when 'A-Z'
+              _posts.order('title ASC')
+            when 'Z-A'
+              _posts.order('title DESC')
+            when 'Higest Rating First'
+              _posts.order('rating DESC')
+            when 'Lowest Rating First'
+              _posts.order('rating ASC')
+            when 'Newest First'
+              _posts.order('created_at DESC')
+            when 'Oldest First'
+              _posts.order('created_at ASC')
+            else
+              _posts.order('title ASC')
+    end
   end
 end
