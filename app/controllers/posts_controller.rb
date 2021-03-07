@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy like]
   before_action :set_categories, except: %i[show destroy]
-  before_action :authenticate_user!, only: [:like]
+  before_action :authenticate_user!, only: %i[show edit update destroy like]
 
   def index
     set_posts_and_categories_with_criteria(params[:category], params[:order])

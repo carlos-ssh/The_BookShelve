@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'home#home'
 
   post 'posts/search'
+  
   resources :categories
   resources :posts do
     member do
