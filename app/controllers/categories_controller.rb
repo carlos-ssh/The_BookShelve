@@ -7,12 +7,12 @@ class CategoriesController < ApplicationController
     @most_voted = if id.nil?
                     nil
                   else
-                    Article.find(id[0])
+                    Post.find(id[0])
                   end
   end
 
   def show
-    
+    @posts = Category.find(params[:id]).posts.includes(:votes).order(created_at: :desc).joins(:image_attachment)
   end
 
   def new

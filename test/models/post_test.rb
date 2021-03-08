@@ -2,9 +2,9 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
     
-  test "should not save article without title" do
-      article = Article.new
-      assert_not article.save
+  test "should not save post without title" do
+      post = Post.new
+      assert_not post.save
   end
 
 end

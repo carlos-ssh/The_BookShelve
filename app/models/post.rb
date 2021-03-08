@@ -1,13 +1,20 @@
 class Post < ApplicationRecord
-  has_and_belongs_to_many :categories
+  belongs_to :user_id, class_name: 'User'
   has_one_attached :image
-
-  validates :title, presence: true, length: { minimum: 2 }
-  validates :review, presence: true, length: { in: 5..2000 }
+  has_and_belongs_to_many :categories, class_name: 'Category'
+  has_many :votes
+  validates :categories_list, presence: true
   validates :image, presence: true
-  validates :rating, numericality: { only_integer: true, less_than_or_equal_to: 10 }
+  validates :title, length: { minimum: 10 }
+  validates :text, length: { minimum: 15 }
 
-  acts_as_votable
+  def categories_list
+    categories
+  end
 
-  belongs_to :user
+  def categories_list=(arr_ids)
+    arr_ids.each do |n|
+      categories << Category.find(n.to_i)
+    end
+  end
 end

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy like]
 
   def index
+    @post = Post.new
     set_posts_and_categories_with_criteria(params[:category], params[:order])
   end
 
@@ -14,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    @categories = Category.all
     @post = Post.new
   end
 
@@ -22,8 +22,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    unless @article.image.attached?
-      @article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.jpg')),
+    unless @post.image.attached?
+      @post.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.jpg')),
                             filename: 'default.jpg',
                             content_type: 'image/jpeg')
     end
