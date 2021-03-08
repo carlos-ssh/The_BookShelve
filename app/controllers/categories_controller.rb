@@ -1,11 +1,19 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
-  before_action :administrador
+
   def index
-    @categories = Category.all
+    @categories = Category.all.order(priority: :desc).include(:posts)
+    id = Post.all.joins(:votes).group(:id).count.max_by { |_k, v| v }
+    @most_voted = if id.nil?
+                    nil
+                  else
+                    Article.find(id[0])
+                  end
   end
 
-  def show; end
+  def show
+    
+  end
 
   def new
     @category = Category.new

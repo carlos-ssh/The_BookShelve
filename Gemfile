@@ -35,7 +35,7 @@ gem 'simple_form'
 
 gem 'rack-timeout'
 gem 'spring', '~> 2.1'
-
+gem 'cancancan', '~> 3.2', '>= 3.2.1'
 gem 'rails_12factor', '~> 0.0.3'
 gem 'rubocop', '~> 0.81'
 # Reduces boot times through caching; required in config/boot.rb

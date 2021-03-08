@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy like]
-  before_action :set_categories, except: %i[show destroy]
-  before_action :authenticate_user!, only: %i[show edit update destroy like]
 
   def index
     set_posts_and_categories_with_criteria(params[:category], params[:order])
@@ -16,13 +14,19 @@ class PostsController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @post = Post.new
   end
 
   def edit; end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
+    unless @article.image.attached?
+      @article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.jpg')),
+                            filename: 'default.jpg',
+                            content_type: 'image/jpeg')
+    end
 
     respond_to do |format|
       if @post.save
@@ -47,7 +51,6 @@ class PostsController < ApplicationController
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -70,7 +73,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :review, :rating, :image, category_ids: [])
+    params.require(:post).permit( :title, :review, :rating, :image, category_ids: [])
   end
 
   def set_posts_and_categories_with_criteria(requested_category, requested_order)

@@ -40,7 +40,7 @@ Style/DefWithParentheses:
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 CyclomaticComplexity:
-  Max: 9
+  Enabled: true
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
