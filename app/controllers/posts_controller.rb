@@ -18,7 +18,7 @@ class PostsController < ApplicationController
                             filename: 'default.jpg',
                             content_type: 'image/jpg')
     end
-
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -54,6 +54,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :review, :image, categories_list: [])
+    params.require(:post).permit(:title, :text, :image, categories_list: [])
   end
 end

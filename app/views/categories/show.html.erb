@@ -1,17 +1,30 @@
-<div class="container py-5">
-  <div class="container py-5">
-    <div class="container py-5">
-      <div class="container py-5">
-  <p id="notice"><%= notice %></p>
+<div class="row">
+	<% @posts.each_with_index do |post, i| %>
+	  <div class = "col-6 row p-0">
+	    <div class="col-6 image-square order-2 p-0" style="background-image: url(<%= url_for(post.image) %>)">
+	    	<div class="cover-img p-0">
+	    	</div>
+	    </div>
+	    <div class ="d-flex flex-column col-6 text-square <%= order(i) %> px-3 pb-3 pt-1 justify-content-between">
+	    	<div class="post-text">
+		    	<%= link_to "#{@category.name}", category_path(@category), :class => "text-uppercase text_orange header-effect category-name"%>
+		    	<span class= "effect-orange mb-3
+		    	"></span>
+		    	<p class="post-title-show"><%= post.title %></p>
+				<p><%= truncate("#{post.text}", :length => 120) %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @category.name %>
-  </p>
+	    	</div>
+			<div>
+				<p class="text-right"><strong> <%= post.author.username %></strong></p>
+				<p class="text-right">
+					<span class="mr-2"><%= vote_button(post) %></span>
+					<%= bookmark_button(post) %>
+	    		</p>
+	    	</div>
 
-  <%= link_to 'Edit', edit_category_path(@category) %> |
-  <%= link_to 'Back', categories_path %>
+		</div>
+	  </div>
+	<% end %>
 </div>
-</div>
-</div>
-</div>
+
+

@@ -19,6 +19,11 @@
     </div>
 
     <div class="field">
+      <%= form.label :priority %></br>
+      <%= form.number_field :priority, class:'form-control w-25' %>
+    </div>
+
+    <div class="field">
       <%= form.label "Set this Category in Navbar: ", class:'my-3' %>
       <%= form.check_box :feature_in_navbar %>
     </div>

@@ -1,25 +1,26 @@
+
 module CategoriesHelper
-  def last_post_image(cat)
-    a = post_last(cat)
-    if a.nil?
+  def last_post_image(category)
+    post = post_last(category)
+    if post.nil?
       image_url('default.jpg')
     else
-      url_for(a.image)
+      url_for(post.image)
     end
   end
 
-  def last_post_title(cat)
-    a = post_last(cat)
-    if a.nil?
-      "Write the first post for #{cat.name
+  def last_post_title(category)
+    post = post_last(category)
+    if post.nil?
+      "Write the first post for #{category.name
 			                                } Category"
     else
-      a.title
+      post.title
     end
   end
 
-  def post_last(cat)
-    cat.posts.last
+  def post_last(category)
+    category.posts.last
   end
 
   def most_voted_partial
