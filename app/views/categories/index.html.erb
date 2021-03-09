@@ -1,4 +1,6 @@
-<div class="container mx-auto bg-white py-5">
+<%
+=begin%>
+ <div class="container mx-auto bg-white py-5">
   <div class="container px-auto pl-5">
     <h1 class="text-center">
       <%= link_to "Categories", root_path, class:'bold text-dark' %>
@@ -38,3 +40,26 @@
     <%= link_to 'Create New Category', new_category_path, class:'ml-3 btn btn-success btn-lg' %>
   </div>
 </div>
+ 
+<%
+=end%>
+
+
+
+<main class="container-fluid p-0">
+	<div class="row">
+		<%= most_voted_partial %>
+		<% @categories.each do |category| %>
+			<div class= "col-3 p-0 category-image" style="background-image: url(<%= last_post_image(category) %>)">
+				<div class="cover-img d-flex flex-column justify-content-between">
+					<div>
+						<%= link_to "#{category.name}", category_path(category), :class => "text-uppercase post-title header-effect"%>
+						<span class= "effect"></span>
+					</div>
+					<p class= "text-right post-title text-white" ><%= last_post_title(category) %></p>
+				</div>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</main>

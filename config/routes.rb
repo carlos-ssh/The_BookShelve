@@ -1,20 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
-  root 'home#home'
-
-  post 'posts/search'
-  
+  root to: "categories#index"
   resources :categories
-  resources :posts do
-    member do
-      put 'like' => 'posts#like'
-    end
-  end
-
-  devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  resources :articles
+  resources :bookmarks, except: [:show, :update, :edit]
+  resources :votes, only: [:create, :new, :destroy, :new]
   
+  devise_for :users
 end
