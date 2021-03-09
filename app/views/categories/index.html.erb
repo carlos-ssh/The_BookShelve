@@ -1,62 +1,57 @@
-<%
-=begin%>
- <div class="container mx-auto bg-white py-5">
-  <div class="container px-auto pl-5">
-    <h1 class="text-center">
-      <%= link_to "Categories", root_path, class:'bold text-dark' %>
-    </h1>
-      <p class="pl-5 pb-3 text-center">Set the Categories that you want to display in the Navbar.</p>
-
-    <% @categories.each do |category| %>
-      <div class="container pl-5 mx-auto w-100">
-        <div class="row ml-5 mr-5 pl-3 pr-3">
-          <%= form_with(model: category, local: true) do |form| %>
-          <div class="col ml-5 mr-5 pl-2 pr-2">
-            <div class="form-group row">
-              <div class="col-4">
-                <%= form.text_field :name, class: 'form-control' %>
-              </div>
-              <div class="col-form-label">
-                <%= form.label "Select this Category", class: 'col-form-label'%>
-              </div>
-              <div class="col">
-                <%= form.check_box :feature_in_navbar, class:'form-control' %>
-              </div>
-              <div class="col">
-                <%= form.submit "Update", class:'btn btn-primary' %>
-              </div>
-            </div>
+<div class="container-fluid px-0">
+  <div class="container-fluid px-0 d-flex">
+    <div id="carouselExampleSlidesOnly" class="carousel-slide px-0 col-8" data-ride="carousel">
+      <div class="carousel-inner container px-0 col-xs-12 ">
+        
+        <div class="carousel-item active px-0 col-12 bg">
+          <div class="carousel-caption">
+            <h1 class="head bold ">Python for everbody</h1>
+            <p class="text-white">Python for Everybody is designed to introduce students to programming and software development through the lens of exploring data.</p>
+            <%= link_to 'Explore more', posts_path, class:'btnc' %>
           </div>
-          <% end %>
-          <div class="col">
-            <%= link_to "Delete", category, method: :delete, data: {confirm: "Are you sure that you want to delete the entire Category?"}, class: 'btn btn-danger' %>
-          </div>
+          <%= most_voted_partial %>
         </div>
+
+        <div class="carousel-item px-0 col-12 bg">
+          <div class="carousel-caption">
+            <h1 class="head bold ">The BookShelve Readers</h1>
+            <p class="text-white">Reading has a significant number of benefits, and here’re 10 benefits of reading to get you to start reading. Explore best seller books only there in The BookShelve.</p>
+            <%= link_to 'Explore more', posts_path, class:'btnc' %>
+          </div>
+          <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/1333732/pexels-photo-1333732.jpeg"  width="100vw" height="625" alt="Second slide">
+        </div>
+
+        <div class="carousel-item px-0 col-12 bg">
+          
+            <div class="carousel-caption">
+              <h1 class="head bold ">Create your account now!</h1>
+              <p class="text-white">Be part of this community of readers arround the world and recibe updates.</p>
+              <%= link_to "Here", new_user_registration_path, class:"btnc" %>
+            </div>
+            <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/279222/pexels-photo-279222.jpeg" width="100vw" height="625" alt="Third slide">
+          </div>
       </div>
-    <% end %>
-  </div>
-  <div class="container-fluid mt-3 ml-5 pl-5 mr-5 pr-5 text-center mb-4 mt-2">
-    <%= link_to 'Back to Posts', posts_path, class:'ml-3 btn btn-warning btn-lg' %>
-    <%= link_to 'Create New Category', new_category_path, class:'ml-3 btn btn-success btn-lg' %>
+
+    </div>
+      <div class="container-fluid col-4 px-0">
+          <img class="img-fluid w-100 imgc" src="https://images.pexels.com/photos/2861798/pexels-photo-2861798.jpeg" width="100vw" height="625" alt="Third slide">
+    </div>
   </div>
 </div>
- 
-<%
-=end%>
 
 
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
-		<%= most_voted_partial %>
+		
 		<% @categories.each do |category| %>
-			<div class="col-3 p-0" style="background-image: url(<%= last_post_image(category) %>)">
-				<div class="cover-img d-flex flex-column justify-content-between">
+			<div class="img p-0" style="background-image: url(<%= last_post_image(category) %>)">
+				<div class="img-fluid d-flex flex-column justify-content-between">
 					<div>
-						<%= link_to "#{category.name}", category_path(category), :class => "text-uppercase"%>
-						<span class= "effect"></span>
+						<%= link_to "#{category.name}", category_path(category), :class => "bold  ml-2 mt-2 text-uppercase"%>
+						<div class="efx"></div>
 					</div>
-					<p class= "text-right text-white" ><%= last_post_title(category) %></p>
+					<p class= "txt-name" ><%= last_post_title(category) %></p>
 				</div>
 			</div>
 		<% end %>

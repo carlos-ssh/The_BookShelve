@@ -1,4 +1,3 @@
-
 module CategoriesHelper
   def last_post_image(category)
     post = post_last(category)
@@ -12,8 +11,7 @@ module CategoriesHelper
   def last_post_title(category)
     post = post_last(category)
     if post.nil?
-      "Write the first post for #{category.name
-			                                } Category"
+      "Write the first post for #{category.name} Category"
     else
       post.title
     end
@@ -25,9 +23,9 @@ module CategoriesHelper
 
   def most_voted_partial
     if !@most_voted.nil?
-      (render 'main_post', most_voted: @most_voted).html_safe
+      (render 'post', most_voted: @most_voted).html_safe
     else
-      (render partial: 'main_default').html_safe
+      (render partial: 'main').html_safe
     end
   end
 

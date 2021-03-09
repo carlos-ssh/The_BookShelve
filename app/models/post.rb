@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :categories_list, presence: true
   validates :image, presence: true
   validates :title, length: { minimum: 10 }
-  validates :review, length: { minimum: 15 }
+  validates :text, length: { minimum: 15 }
 
   def categories_list
     categories
