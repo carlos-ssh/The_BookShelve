@@ -1,38 +1,29 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy like]
-
-  def index
-    @post = Post.new
-    set_posts_and_categories_with_criteria(params[:category], params[:order])
-  end
-
-  def search
-    set_posts_and_categories_with_criteria(params[:category], params[:order])
-  end
-
-  def show
-    @post = Post.find params[:id]
-  end
+  before_action :set_post, only: %i[show edit update destroy]
 
   def new
+    @categories = Category.all
     @post = Post.new
   end
 
   def edit; end
 
+  def show; end
+
   def create
+    @categories = Category.all
     @post = current_user.posts.new(post_params)
     unless @post.image.attached?
       @post.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.jpg')),
                             filename: 'default.jpg',
-                            content_type: 'image/jpeg')
+                            content_type: 'image/jpg')
     end
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
       end
     end
   end
@@ -42,7 +33,7 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
       end
     end
   end
@@ -50,69 +41,19 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-    end
-  end
-
-  def like
-    if current_user.voted_for? @post
-      @post.unliked_by current_user
-    else
-      @post.liked_by current_user
+      format.html { redirect_to post_url, notice: 'Post was successfully destroyed.' }
     end
   end
 
   private
 
+  # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
   end
 
-  def set_categories
-    @categories = Category.all
-  end
-
+  # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit( :title, :review, :rating, :image, category_ids: [])
-  end
-
-  def set_posts_and_categories_with_criteria(requested_category, requested_order)
-    if requested_category.nil? || requested_category.eql?('All')
-      posts_by_category = Post.all
-      @category_name = 'All'
-    else
-      posts_by_category = filter_posts_by_category(requested_category)
-      @category_name = requested_category
-    end
-    @order = requested_order
-    order_posts(requested_order, posts_by_category)
-  end
-
-  def filter_posts_by_category(category_name)
-    @category = Category.find_by(name: category_name)
-    if @category.nil?
-      Post.none
-    else
-      @category.posts
-    end
-  end
-
-  def order_posts(_order, _posts)
-    @posts = case _order
-            when 'A-Z'
-              _posts.order('title ASC')
-            when 'Z-A'
-              _posts.order('title DESC')
-            when 'Higest Rating First'
-              _posts.order('rating DESC')
-            when 'Lowest Rating First'
-              _posts.order('rating ASC')
-            when 'Newest First'
-              _posts.order('created_at DESC')
-            when 'Oldest First'
-              _posts.order('created_at ASC')
-            else
-              _posts.order('title ASC')
-    end
+    params.require(:post).permit(:title, :review, :image, categories_list: [])
   end
 end

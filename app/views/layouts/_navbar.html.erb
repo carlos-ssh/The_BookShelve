@@ -12,11 +12,6 @@
         <li class="nav-item">
           <%= link_to "All", posts_path, class: "nav-link bold home" %>
         </li>
-          <% @featured.each do |category| %>
-        <li class="nav-item">
-          <%= link_to category.name, posts_path(category: category.name), class: "nav-link bold text-secondary" %>
-        </li>
-          <% end %>
 
       </ul>
 

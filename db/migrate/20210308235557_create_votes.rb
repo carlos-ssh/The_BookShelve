@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class ActsAsVotableMigration < ActiveRecord::Migration[6.0]
+class CreateVotes < ActiveRecord::Migration[6.1]
   def change
     create_table :votes do |t|
       t.integer :user_id

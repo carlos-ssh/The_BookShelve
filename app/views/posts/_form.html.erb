@@ -1,64 +1,48 @@
-<div class="container bg-white">
-  <div class="bg-white rounded py-5 px-5">
-    <%= form_with(model: post) do |form| %>
-      <% if post.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-          <ul>
-            <% post.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    <div class="container">
-      <div class="container">
-        <div class="form-group">
-          <%= form.hidden_field :user_id , :value => current_user.id %>
-          <%= form.label :title, class:'bold' %>
-        <br>
-          <%= form.text_field :title, class:'form-control w-25' %>
-        </div>
-      </div>
-      <div class="container my-3">
-        <div class="field">
-          <%= form.label :review, class:'bold' %>
-          <br>
-          <%= form.text_area :review, class:'form-control w-75 h-100' %>
-        </div>
-      </div>
 
-      <div class="container my-3">
-        <div class="field">
-          <%= form.label :rating, class:'bold' %>
-          <%= form.text_field :rating, class:'form-control w-25' %>
-        </div>
-      </div>    
-      <div class="container my-5">
-        <div class="form-group">
-            <%= form.label :categories, class:'bold' %>
-          <br>
-            <%= form.collection_select :category_ids, @categories, :id, :name, {}, { multiple: true, class:'form-control w-25' } %>
-          <br>
-          <p class="font-italic"> 
-            Do you didn't found a category? 
-          <%= link_to "Click Here", new_category_path %>
-          </p>
-        </div>
+<div class="form-wrapper">
+  <%= form_with(model: article, local: true) do |form| %>
+    <% if article.errors.any? %>
+      <div id="error_explanation">
+        <p><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</p>
+
+        <ul>
+          <% article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
-      <div class="container">
-        <div class="form-group">
-          <%= form.label :image, class:'bold' %>
-        <br>
-          <%= form.file_field :image, class:'form-control-file', direct_upload: true  %>
-        </div>
-      </div>
-      <div class="container mt-5">
-        <div class="actions">
-          <%= form.submit(class:'btn btn-primary') %>
-        </div>
-      </div>
-    </div>
     <% end %>
-  </div>
+
+    <div class="field">
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %><br>
+      <%= form.file_field :image, direct_upload: true %>
+    </div>
+    
+    <div class="field">
+      <%= form.label "Categories" %><br>
+      <% @categories.each do |c| %>
+        <span class="mr-2">
+          <%= form.check_box("categories_list", {:multiple => true}, c.id, nil) %>
+          <label><%= h c.name -%></label>
+        </span>
+      <% end %>
+    </div>
+
+    <p><%= link_to "CREATE NEW CATEGORY", new_category_path, :class => "pr-2 navbar-links", target: :_blank %> </p>
+
+
+    <div class="field">
+      <%= form.label :text %><br>
+      <%= form.text_area(:text, cols: 60, rows: 9) %>
+    </div>
+
+    <div class="actions mb-5">
+      <%= form.submit %>
+    </div>
+  <% end %>
 </div>

@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
 
   def index
-    @categories = Category.all.order(priority: :desc).include(:posts)
+    @categories = Category.all.order(priority: :desc).includes(:posts)
     id = Post.all.joins(:votes).group(:id).count.max_by { |_k, v| v }
     @most_voted = if id.nil?
                     nil
@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:id])
     @posts = Category.find(params[:id]).posts.includes(:votes).order(created_at: :desc).joins(:image_attachment)
   end
 
@@ -26,9 +27,9 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to categories_path, notice: 'Category was successfully created.' }
+        format.html { redirect_to new_post_path, notice: 'Category was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
       end
     end
   end
@@ -36,9 +37,9 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to categories_path, notice: 'Category was successfully updated.' }
+        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
       end
     end
   end
@@ -57,6 +58,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :feature_in_navbar)
+    params.require(:category).permit(:name, :priority)
   end
 end
