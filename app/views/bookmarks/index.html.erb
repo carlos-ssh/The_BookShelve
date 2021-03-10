@@ -2,7 +2,7 @@
 <div class="container bg-white">
 	<% @bookmarks.each_with_index do |bookmark, i| %>
 	  <div class = "col-6 row p-0">
-	    <div class="col-6 image-square order-2 p-0" style="background-image: url(<%= url_for(bookmark.post.image) %>)">
+	    <div class="col-6 img-fluid p-0" style="background-image: url(<%= url_for(bookmark.post.image) %>)">
 	    	<div class="cover-img p-0">
 	    	</div>
 	    </div>
