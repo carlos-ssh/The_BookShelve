@@ -1,16 +1,15 @@
 <div class="row">
 	<% @posts.each_with_index do |post, i| %>
 	  <div class = "col-6 row p-0">
-	    <div class="col-6 image-square order-2 p-0" style="background-image: url(<%= url_for(post.image) %>)">
+	    <div class="img" style="background-image: url(<%= url_for(post.image) %>)">
 	    	<div class="cover-img p-0">
 	    	</div>
 	    </div>
 	    <div class ="d-flex flex-column col-6 text-square <%= order(i) %> px-3 pb-3 pt-1 justify-content-between">
-	    	<div class="post-text">
+	    	<div class="">
 		    	<%= link_to "#{@category.name}", category_path(@category), :class => "text-uppercase text_orange header-effect category-name"%>
-		    	<span class= "effect-orange mb-3
-		    	"></span>
-		    	<p class="post-title-show"><%= post.title %></p>
+		    	<span class= "effect-orange mb-3"></span>
+		    	<p class=""><%= post.title %></p>
 				<p><%= truncate("#{post.text}", :length => 120) %></p>
 
 	    	</div>

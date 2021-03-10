@@ -33,16 +33,14 @@ gem 'acts_as_votable'
 gem 'devise'
 gem 'simple_form'
 
-gem 'rack-timeout'
 gem 'spring', '~> 2.1'
-gem 'cancancan', '~> 3.2', '>= 3.2.1'
+
 gem 'rails_12factor', '~> 0.0.3'
 gem 'rubocop', '~> 0.81'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'listen', '~> 3.3'
 gem 'rack', '~> 2.2', '>= 2.2.3'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

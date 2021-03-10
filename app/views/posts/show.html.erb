@@ -2,10 +2,10 @@
   <%= @post.title %>
 </h2>
 <div>
-    <%= image_tag(@post.image, height: '280', width: '580', class: 'mx-auto d-block') %>
+    <%= image_tag(@post.image, class: 'img-fluid mx-auto d-block') %>
 </div>
 <p class="mx-auto mt-4 text-show text-justify">
-  <%= @post.review %>
+  <%= @post.text %>
 </p>
 <p class="mx-auto mt-4 text-show text-justify">
   <%= link_to 'Back', categories_path %>
