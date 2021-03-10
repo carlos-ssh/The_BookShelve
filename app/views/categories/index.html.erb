@@ -9,9 +9,10 @@
             <p class="text-white">Python for Everybody is designed to introduce students to programming and software development through the lens of exploring data.</p>
             <%= link_to 'Explore more', posts_path, class:'btnc' %>
           </div>
-          <%= most_voted_partial %>
+          
+          <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg"  width="100vw" height="625" alt="First slide">
         </div>
-
+        
         <div class="carousel-item px-0 col-12 bg">
           <div class="carousel-caption">
             <h1 class="head bold ">The BookShelve Readers</h1>
@@ -34,7 +35,12 @@
 
     </div>
       <div class="container-fluid col-4 px-0">
-          <img class="img-fluid w-100 imgc" src="https://images.pexels.com/photos/2861798/pexels-photo-2861798.jpeg" width="100vw" height="625" alt="Third slide">
+          <%= most_voted_partial %>
+        <div class="carousel-caption">
+          <h4 class="main-title text_orange text-right text-uppercase"> <%= @most_voted.title %> </h4> 
+          <p class = "posts_text text-right text-white"> <%= truncate("#{@most_voted.text}", :length => 135) %> </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -47,11 +53,9 @@
       <% @categories.each do |category| %>
         <div class="px-0">
           <%= image_tag last_post_image(category), class:'img px-0' %>
-          <div class="img-fluid d-flex flex-column justify-content-between">
-            <div>
+          <div class="">
               <%= link_to "#{category.name}", category_path(category), :class => "bold  ml-2 mt-2 text-uppercase"%>
               <div class="efx"></div>
-            </div>
             <a class="" ><%= last_post_title(category) %></a>
           </div>
         </div>
