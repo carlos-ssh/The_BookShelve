@@ -23,13 +23,13 @@ body {
 
 footer {
     background-color: #1a1f24;
-    position: fixed;
+    position: relative;
     margin-top: 0px;
     bottom: 0;
     left: 0;
     width: 100vw;
     z-index: 100;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 a,
@@ -63,21 +63,23 @@ a,
 .img {
     height: 490px;
     width: 360px;
+    opacity: .6;
+    z-index: 999;
 }
 
 .img1 {
     height: 641px;
     width: 100%;
-    opacity: ;
+    opacity: .6;
 }
 
 .txt-name {
     position: relative;
-    top: 380px;
     color: #fff;
     font-weight: bold;
     letter-spacing: 2px;
     left: 70px;
+    top: 80px;
 }
 
 .efx {

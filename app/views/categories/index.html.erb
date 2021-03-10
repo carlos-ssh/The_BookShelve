@@ -54,13 +54,14 @@
         <div class="px-0">
           <%= image_tag last_post_image(category), class:'img px-0' %>
           <div class="">
-              <%= link_to "#{category.name}", category_path(category), :class => "bold  ml-2 mt-2 text-uppercase"%>
+            <div class="">
+              <%= link_to "#{category.name}", category_path(category), :class => "bold pl-3 ml-2 mt-2 header-effect"%>
               <div class="efx"></div>
-            <a class="" ><%= last_post_title(category) %></a>
+              <%= link_to last_post_title(category), class: 'txt-name text-right article-title text-white' %>
+            </div>
           </div>
         </div>
       <% end %>
-      </div>
     </div>
 	</div>
 </div>
