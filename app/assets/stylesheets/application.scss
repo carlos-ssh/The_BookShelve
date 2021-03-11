@@ -1,14 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
  *
  *= require_tree .
  *= require_self
@@ -23,13 +13,18 @@ body {
 
 footer {
     background-color: #1a1f24;
-    position: relative;
+    position: fixed;
     margin-top: 0px;
     bottom: 0;
     left: 0;
     width: 100vw;
     z-index: 100;
     margin-top: 30px;
+}
+
+img {
+    opacity: .6;
+    z-index: -10;
 }
 
 a,
@@ -56,6 +51,26 @@ a,
     height: 641px;
 }
 
+.ttl-txt {
+    margin-top: -40px;
+    position: relative;
+    top: 30px;
+    left: 15px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.txt-name {
+    position: fixed;
+    z-index: 1;
+}
+
+.efx {
+    display: block;
+    width: 30px;
+    height: 1px;
+}
+
 .imgc1 {
     height: 500px;
 }
@@ -63,8 +78,6 @@ a,
 .img {
     height: 490px;
     width: 360px;
-    opacity: .6;
-    z-index: 999;
 }
 
 .img1 {
@@ -73,20 +86,9 @@ a,
     opacity: .6;
 }
 
-.txt-name {
-    position: relative;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    left: 70px;
-    top: 80px;
-}
-
-.efx {
-    display: block;
-    width: 30px;
-    height: 1px;
-    border-bottom: 6px solid #f9e83d;
+.img-nail {
+    height: 325px;
+    width: 240px;
 }
 
 .effect-orange {

@@ -14,6 +14,10 @@
     <% end %>
 
     <div class="field mt-5">
+      <%= form.hidden_field :author_id%>
+    </div>
+
+    <div class="field mt-5">
       <%= form.label :title, class:'bold' %><br>
       <%= form.text_field :title %>
     </div>
@@ -23,7 +27,7 @@
       <% @categories.each do |c| %>
         <span class="mr-2">
           <%= form.check_box("categories_list", {:multiple => true}, c.id, nil) %>
-          <label><%= h c.name -%></label>
+          <label><%= h c.name %></label>
         </span>
       <% end %>
     </div>

@@ -2,17 +2,14 @@
   <div class="container-fluid px-0 d-flex">
     <div id="carouselExampleSlidesOnly" class="carousel-slide px-0 col-8" data-ride="carousel">
       <div class="carousel-inner container px-0 col-xs-12 ">
-        
         <div class="carousel-item active px-0 col-12 bg">
           <div class="carousel-caption">
             <h1 class="head bold ">Python for everbody</h1>
             <p class="text-white">Python for Everybody is designed to introduce students to programming and software development through the lens of exploring data.</p>
             <%= link_to 'Explore more', posts_path, class:'btnc' %>
           </div>
-          
           <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg"  width="100vw" height="625" alt="First slide">
         </div>
-        
         <div class="carousel-item px-0 col-12 bg">
           <div class="carousel-caption">
             <h1 class="head bold ">The BookShelve Readers</h1>
@@ -21,9 +18,7 @@
           </div>
           <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/1333732/pexels-photo-1333732.jpeg"  width="100vw" height="625" alt="Second slide">
         </div>
-
-        <div class="carousel-item px-0 col-12 bg">
-          
+        <div class="carousel-item px-0 col-12 bg">      
             <div class="carousel-caption">
               <h1 class="head bold ">Create your account now!</h1>
               <p class="text-white">Be part of this community of readers arround the world and recibe updates.</p>
@@ -32,11 +27,11 @@
             <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/279222/pexels-photo-279222.jpeg" width="100vw" height="625" alt="Third slide">
           </div>
       </div>
-
     </div>
       <div class="container-fluid col-4 px-0">
           <%= most_voted_partial %>
         <div class="carousel-caption">
+          <h5 class="text-primary bold">Our Most Voted Post Section</h5>
           <h4 class="main-title text_orange text-right text-uppercase"> <%= @most_voted.title %> </h4> 
           <p class = "posts_text text-right text-white"> <%= truncate("#{@most_voted.text}", :length => 135) %> </p>
         </div>
@@ -45,23 +40,14 @@
   </div>
 </div>
 
-
-
-<div class="container-fluid">
-	<div class="container-fluid px-0">
-    <div class="row">
-      <% @categories.each do |category| %>
-        <div class="px-0">
-          <%= image_tag last_post_image(category), class:'img px-0' %>
-          <div class="">
-            <div class="">
-              <%= link_to "#{category.name}", category_path(category), :class => "bold pl-3 ml-2 mt-2 header-effect"%>
-              <div class="efx"></div>
-              <%= link_to last_post_title(category), class: 'txt-name text-right article-title text-white' %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+<div class="container-fluid d-flex mx-0 px-0 pb-5">
+  <% @categories.each do |category| %>
+    <div class="row mx-0 px-0 py-0 my-0">
+      <div class="col-3 mx-0 px-0 py-0 my-0">
+        <%= link_to "#{category.name}", category_path(category), :class => "ttl-txt mt-0"%>
+        <div class="efx"></div>
+        <%= image_tag last_post_image(category), class:'img px-0' %>
+      </div>
     </div>
-	</div>
+  <% end %>
 </div>
