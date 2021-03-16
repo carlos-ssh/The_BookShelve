@@ -31,23 +31,21 @@
       <div class="container-fluid col-4 px-0">
           <%= most_voted_partial %>
         <div class="carousel-caption">
-          <h5 class="text-primary bold">Our Most Voted Post Section</h5>
-          <h4 class="main-title text_orange text-right text-uppercase"> <%= @most_voted.title %> </h4> 
-          <p class = "posts_text text-right text-white"> <%= truncate("#{@most_voted.text}", :length => 135) %> </p>
+          <h5 class="head display-4 bold">Most Voted Section</h5>
+          <h4 class="head bold text-uppercase"> <%= @most_voted.title %> </h4> 
+          <p class="posts_text text-right text-white"> <%= truncate("#{@most_voted.text}", :length => 135) %> </p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid d-flex mx-0 px-0 pb-5">
+<div class="container-fluid d-flex mx-0 px-0">
   <% @categories.each do |category| %>
-    <div class="row mx-0 px-0 py-0 my-0">
-      <div class="col-3 mx-0 px-0 py-0 my-0">
-        <%= link_to "#{category.name}", category_path(category), :class => "ttl-txt mt-0"%>
-        <div class="efx"></div>
-        <%= image_tag last_post_image(category), class:'img px-0' %>
-      </div>
+    <div class="row px-0 mx-0 px-0">
+      <%= image_tag last_post_image(category), class:'w-100 img' %>
+      <%= link_to "#{category.name}", category_path(category), class: 'ttl-txt' %>
+      <span class="efx"></span>
     </div>
   <% end %>
 </div>
