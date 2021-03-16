@@ -1,29 +1,23 @@
-<div class="container-fluid d-flex">
-	<div class="row px-0 mx-0">
-		<% @posts.each_with_index do |post, i| %>
-			<div class="col-6 mx-0 px-0 ">
-				<div class="bg-white">
-					<div class=" pr-3 mx-0">
-						<%= image_tag post.image, class:'img' %>
-					</div>
-				</div>
-				<div class ="bg-white d-flex flex-column col-6 text-square <%= order(i) %> px-0 pb-3 pt-1 justify-content-between">
-					<div class="article-text mt-4">
-						<%= link_to "#{@category.name}", category_path(@category), :class => "text-uppercase text_orange header-effect category-name"%>
-						<span class= "effect-orange mb-3"></span>
+<% @posts.each_with_index do |post, i| %>
+		<div class="row mx-0 px-0">
+			<div class="col-3 mx-0 px-0">
+				<%= image_tag post.image, class:'img-fluid mx-0 px-0' %>
+			</div>
+			<div class="col-3 bg-white d-flex flex-column text-square <%= order(i) %> px-3 pb-3 pt-1 justify-content-between">
+				<div class="article-text mt-4">
+					<%= link_to "#{@category.name}", category_path(@category), :class => "text-uppercase text_orange header-effect category-name"%>
+					<span class= "effect-orange mb-3"></span>
 
-						<a class="text-black pt-3 article-title-show pt-3 bold" href="<%= post_path %>"><%= post.title %></a>
-						<p><%= truncate("#{post.text}", :length => 120) %></p>
-						<a href="<%= post_path %>">See more</a>
-					</div>
-					<div class="bg-white">
-						<p class="text-right pr-4"> Created By: <strong> <%= post.author.username %></strong></p>
-						<p class="text-right pr-4"> <span class="mr-2"><%= vote_button(post) %></span> <%= bookmark_button(post) %></p>
-					</div>
+					<a class="text-black pt-3 article-title-show pt-3 bold" href="<%= post_path %>"><%= post.title %></a>
+					<p><%= truncate("#{post.text}", :length => 120) %></p>
+					<a href="<%= post_path %>">See more</a>
+				</div>
+				<div class="bg-white">
+					<p class="text-right pr-4"> Created By: <strong> <%= post.author.username %></strong></p>
+					<p class="text-right pr-4"> <span class="mr-2"><%= vote_button(post) %></span> <%= bookmark_button(post) %></p>
+				</div>
 			</div>
-			</div>
-		<% end %>
-	</div>
-</div>
+		</div>
+<% end %>
 
 

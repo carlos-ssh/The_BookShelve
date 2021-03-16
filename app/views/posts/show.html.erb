@@ -1,14 +1,13 @@
-<div class="container-fluid">
+
   <div class="container-fluid d-flex px-0">
     <%= image_tag(@post.image, class:'img') %>
     <div class="px-5 py-3 bg-white">
-      <h2><%= @post.title %></h2>
+      <h2 class="bold head ml-3 my-3"><%= @post.title %></h2>
       <div class="container w-100">
         <%= @post.text %>
       </div>
+      <div class="mx-auto mt-5 text-show text-justify">
+        <%= link_to 'Back', root_path, class:'btn btn-warning mt-5 ml-3' %>
+      </div>
     </div>
   </div>
-  <div class="mx-auto mt-4 text-show text-justify">
-    <%= link_to 'Back', root_path, class:'btn btn-warning' %>
-  </div>
-</div>
