@@ -1,17 +1,19 @@
-
-<div class="container mb-5">
+<div class="container bg-white">
+	<h3 class="bold py-5 text-center">My Bookmarks</h3>
+</div>
+<div class="container mb-3 pt-5 pl-5 rounded">
 	<% @bookmarks.each_with_index do |bookmark, i| %>
-		<div class = "col-6 row p-0">
-					<div class="col-6 img-fluid p-0">
-						<%= url_for(post.image) %>
-					</div>
+		<div class = "col-12 mb-3 row p-0">
+			<div class="col-3 img-fluid" style="background-image: url(<%= url_for(bookmark.post.image) %>)">
+				<div class="cover-img p-0">
+				</div>
+			</div>
 				<div class ="bg-white d-flex flex-column col-6 text-square <%= order(i) %> px-3 pb-3 pt-1 justify-content-between">
 					<div>
-						<p class="post-title-show"><%= bookmark.post.title %></p>
+						<h3 class="post-title-show"><%= bookmark.post.title %></h3>
 						<p><%= truncate("#{bookmark.post.text}", :length => 105) %></p>
 					</div>
 			</div>
 		</div>
 	<% end %>
-
 </div>
