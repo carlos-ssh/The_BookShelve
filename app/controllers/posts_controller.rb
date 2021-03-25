@@ -46,14 +46,14 @@ class PostsController < ApplicationController
   end
 
   private
-
-
   def set_post
     @post = Post.find(params[:id])
   end
+
   def linked_post
     @post = post_path
   end
+
   def post_params
     params.require(:post).permit(:title, :text, :image, categories_list: [])
   end
