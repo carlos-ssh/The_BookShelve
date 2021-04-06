@@ -356,7 +356,7 @@ DEPENDENCIES
   rails (~> 6.1.1)
   rails_12factor (~> 0.0.3)
   rake (~> 13.0, >= 13.0.3)
-  rspec-rails (~> 4.0, >= 4.0.2)
+  rspec-rails
   rubocop (~> 0.81)
   sass-rails (>= 6)
   selenium-webdriver
