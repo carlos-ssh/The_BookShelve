@@ -9,7 +9,7 @@ class BookmarksController < ApplicationController
       if @bookmark.save
         format.html do
           redirect_to category_path(params[:category_id]),
-                      notice: 'Bookmark was successfully created.'
+                      notice: 'Bookmark was successfully saved.'
         end
       else
         format.html { render :new }
@@ -21,7 +21,7 @@ class BookmarksController < ApplicationController
     @bookmark = current_user.bookmarks.find_by(post_id: params[:post_id])
     @bookmark.destroy
     respond_to do |format|
-      format.html { redirect_to category_path(params[:category_id]), notice: 'Bookmark was successfully destroyed.' }
+      format.html { redirect_to category_path(params[:category_id]), notice: 'Bookmark was successfully removed from your list.' }
     end
   end
 
