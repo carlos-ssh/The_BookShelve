@@ -36,33 +36,36 @@ gem 'simple_form'
 gem 'spring', '~> 2.1'
 
 gem 'rails_12factor', '~> 0.0.3'
-gem 'rubocop', '~> 0.81'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'listen', '~> 3.3'
 gem 'rack', '~> 2.2', '>= 2.2.3'
 
+# Use to environment variables
+gem 'dotenv-rails'
 
 group :development, :test do
-  gem 'rspec-rails' 
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
-  gem 'dotenv-rails'
+  # Use to TDD
   gem 'factory_bot_rails', '~> 6.1'
-  gem 'simplecov', '~> 0.21.2'
+  gem 'faker'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner-active_record'
+
+  # Use to debugging
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+
+  # use to code standard
+  gem 'rubocop'
+  gem 'rubocop-performance'
 end
 
 group :test do
-  
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
