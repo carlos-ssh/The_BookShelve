@@ -4,7 +4,7 @@ describe 'posts', type: :feature do
   before :each do
     visit 'users/sign_up'
     fill_in 'user_username', with: 'carlos'
-    fill_in 'user_email', with: 'carlos@example.com'
+    fill_in 'user_email', with: 'charly@example.com'
     fill_in 'user_password', with: '123123'
     fill_in 'user_password_confirmation', with: '123123'
     click_button 'Sign up'
