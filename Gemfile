@@ -45,6 +45,7 @@ gem 'rack', '~> 2.2', '>= 2.2.3'
 gem 'dotenv-rails'
 
 group :development, :test do
+  gem 'capybara', '~> 3.35', '>= 3.35.3'
   # Use to TDD
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker'
@@ -67,7 +68,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
