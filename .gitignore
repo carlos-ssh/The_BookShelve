@@ -1,3 +1,7 @@
+# file: ~/.gitignore_global
+.DS_Store
+.idea
+
 *.rbc
 capybara-*.html
 .rspec
