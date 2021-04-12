@@ -47,15 +47,15 @@ gem 'dotenv-rails'
 group :development, :test do
   gem 'capybara', '~> 3.35', '>= 3.35.3'
   # Use to TDD
+  gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'database_cleaner-active_record'
 
   # Use to debugging
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do

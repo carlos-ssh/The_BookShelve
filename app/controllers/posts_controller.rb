@@ -15,8 +15,8 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     unless @post.image.attached?
       @post.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.jpg')),
-                            filename: 'default.jpg',
-                            content_type: 'image/jpg')
+                         filename: 'default.jpg',
+                         content_type: 'image/jpg')
     end
 
     respond_to do |format|
@@ -46,6 +46,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def set_post
     @post = Post.find(params[:id])
   end
