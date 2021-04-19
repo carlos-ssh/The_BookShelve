@@ -50,7 +50,7 @@ group :development, :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 5.0'
   gem 'shoulda-matchers'
 
   # Use to debugging
@@ -60,7 +60,6 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-
   # use to code standard
   gem 'rubocop'
   gem 'rubocop-performance'

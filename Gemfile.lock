@@ -363,7 +363,7 @@ DEPENDENCIES
   rails (~> 6.1.1)
   rails_12factor (~> 0.0.3)
   rake (~> 13.0, >= 13.0.3)
-  rspec-rails
+  rspec-rails (~> 5.0)
   rubocop
   rubocop-performance
   sass-rails (>= 6)
