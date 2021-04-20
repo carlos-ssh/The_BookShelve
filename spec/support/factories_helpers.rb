@@ -1,7 +1,7 @@
 require 'faker'
 
 module FactoriesHelpers
-  def article_data
+  def post_data
     {
       title: Faker::Lorem.sentence,
       content: Faker::Lorem.paragraph,

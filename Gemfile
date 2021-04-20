@@ -19,28 +19,23 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
+# Us Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Active Storage variant
 gem 'active_storage_validations', '~> 0.9.2'
 gem 'cloudinary'
 gem 'image_processing', '~> 1.2'
 gem 'shrine', '~> 3.3'
 gem 'shrine-cloudinary', '~> 1.1', '>= 1.1.1'
-
 gem 'acts_as_votable'
 gem 'devise'
 gem 'simple_form'
-
 gem 'spring', '~> 2.1'
-
 gem 'rails_12factor', '~> 0.0.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'listen', '~> 3.3'
 gem 'rack', '~> 2.2', '>= 2.2.3'
-
 # Use to environment variables
 gem 'dotenv-rails'
 
@@ -62,7 +57,10 @@ group :development do
 end
 
 group :test do
+  gem "shoulda-matchers", "~> 4.5"
+  gem 'database_cleaner-active_record'
   # Adds support for Capybara system testing and selenium driver
+  gem 'capybara'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
