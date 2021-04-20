@@ -1,8 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-#require 'spec_helper'
+# require 'spec_helper'
 require 'shoulda/matchers'
 require 'database_cleaner/active_record'
-
 
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -75,5 +74,4 @@ RSpec.configure do |config|
   end
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
-
 end
