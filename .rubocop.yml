@@ -1,13 +1,8 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
-  SuggestExtensions: false
   NewCops: enable
-
   Exclude:
-    - "vendor/bundle/**/*"
     - "db/**/*"
-    - "bin/*"
+    - "bin/*" 
     - "config/**/*"
     - "Guardfile"
     - "Rakefile"
