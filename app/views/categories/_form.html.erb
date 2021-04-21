@@ -13,26 +13,23 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, class:'form-control w-25' %>
-    </div>
+    <div class="container ml-3">
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, class:'form-control w-25' %>
+      </div>
 
-    <div class="field">
-      <%= form.label :priority %></br>
-      <%= form.number_field :priority, class:'form-control w-25' %>
-    </div>
+      <div class="field">
+        <%= form.label :priority %></br>
+        <%= form.number_field :priority, class:'form-control w-25' %>
+      </div>
 
-    <div class="field">
-      <%= form.label "Set this Category in Navbar: ", class:'my-3' %>
-      <%= form.check_box :feature_in_navbar %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit(class: 'btn btn-primary') %>
-    </div>
+      <div class="actions">
+        <%= form.submit(class: 'btn btn-primary') %>
+        <%= link_to 'Back', categories_path, class:'ml-3 btn btn-warning' %>
+      </div>
     <% end %>
-
+    </div>
   </div>
 </div>
 

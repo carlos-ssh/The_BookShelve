@@ -1,5 +1,5 @@
 
-<div class="form-wrapper">
+<div class="form-wrapper my-3">
   <%= form_with(model: post, local: true) do |form| %>
     <% if post.errors.any? %>
       <div id="error_explanation">
@@ -38,13 +38,14 @@
       <%= form.text_area(:text, cols: 60, rows: 9) %>
     </div>
 
-    <div class="field card">
+    <div class="field ">
       <%= form.label "Pick an Image: ", class:'bold mt-2 pl-4' %><br>
-      <%= form.file_field :image, direct_upload: true, class: 'btn' %>
+      <%= form.file_field :image, direct_upload: true, class: '' %>
     </div>
 
-    <div class="actions mb-5 mt-5">
-      <%= form.submit %>
+    <div class="actions mb-5 pb-5 mt-3">
+      <%= form.submit "Create", :class => 'btn btn-primary ' %>
+      <%= link_to 'Back', posts_path, class: 'btn btn-warning ml-1'%>
     </div>
   <% end %>
 </div>
