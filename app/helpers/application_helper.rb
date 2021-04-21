@@ -1,9 +1,9 @@
 module ApplicationHelper
   def load_nav
-    if !current_user.nil?
-      (render partial: 'user_nav').html_safe
-    else
+    if current_user.nil?
       (render partial: 'login_nav').html_safe
+    else
+      (render partial: 'user_nav').html_safe
     end
   end
 

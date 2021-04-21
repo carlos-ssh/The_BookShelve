@@ -22,10 +22,10 @@ module CategoriesHelper
   end
 
   def most_voted_partial
-    if !@most_voted.nil?
-      (render 'post', most_voted: @most_voted).html_safe
-    else
+    if @most_voted.nil?
       (render partial: 'main').html_safe
+    else
+      (render 'post', most_voted: @most_voted).html_safe
     end
   end
 
