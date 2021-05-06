@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="container my-5 bg-white rounded-bottom pl-5 pt-3">
+    <h1 class="pl-5">Editing Post</h1>
+
+    <%= render 'form', post: @post %>
+    
+    <div class="container bg-white pb-4 pl-5">
+      <%= link_to 'Back', posts_path, class:'btn btn-secondary' %>
+      <%= link_to 'Show', @post, class:'btn btn-warning' %>
+    </div>
+  </div>
+</div>

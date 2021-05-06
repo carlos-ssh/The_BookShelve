@@ -1,0 +1,31 @@
+
+  <div class="container w-100 mb-5">
+    <div class="row w-100">
+      <% @posts.each_with_index do |post, i| %>
+        <div class = "col-6 row p-0 ml-2">
+          <div class="col-6 order-2 px-0">
+            <%= image_tag post.image, class:'img img-fluid' %>
+          </div>
+
+          <div class ="d-flex flex-column col-6 text-square bg-white <%= order(i) %> px-3 pb-3 pt-1 justify-content-between">
+            <div class="post-text">
+              <%= link_to "#{@category.name}", category_path(@category), :class => "text-uppercase text_orange bold header-effect category-name"%>
+              <span class= "effect-orange mb-3"></span>
+              <h4 class="text-center bold pt-3"><%= post.title %></h4>
+              <p><%= truncate("#{post.text}", :length => 120) %></p>
+              <a class="font-italic" href="<%= post_path %>">Read More</a>
+            </div>
+            
+            <div>
+            <p class="text-right">Created by:<strong> <%= post.author.username %></strong></p>
+            <p class="text-right">
+              <span class="mx-3"><%= vote_button(post) %></span>
+              <%= bookmark_button(post) %>
+              </p>
+            </div>
+
+        </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

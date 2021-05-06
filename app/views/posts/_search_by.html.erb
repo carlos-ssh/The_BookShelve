@@ -1,0 +1,23 @@
+<div class=" px-5 py-5 d-flex">
+  <%= form_tag(posts_search_path, remote: true) do %>
+    <div class=" field text-center d-flex ">
+      <%= label_tag :category, "Category: ", class: (' mx-auto bold txt px-3 pt-2 mt-1 ') %>
+      
+      <%= select_tag :category, options_from_collection_for_select(
+          @categories.to_a.unshift(Category.new(id: 0, name: "All")),
+          "name",
+          "name",
+          "0"), class: 'form-control px-3 mt-2 dropdown show dropdown-toggle' %>
+      
+      <%= select_tag :order, options_for_select([ 
+          "A-Z",
+          "Z-A",
+          "Higest Rating First",
+          "Lowest Rating First",
+          "Newest First",
+          "Oldest First"
+      ]), {include_blank: "Order By", class: 'form-control px-2 ml-2 mt-2'} %>
+      <%= submit_tag "Search", class: 'btnc text-center d-flex ml-3 mb-4'%>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,40 @@
+<div class="container bg-white py-3 mb-5">
+    <h2 class="text-center display-4 py-3"><%= resource_name.to_s.humanize %> Settings </h2>
+  <div class="container bg-white d-flex">
+    <div class="container bg-white col-6 mb-3">
+      <br>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+          <%= f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password,
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+        <div class="form-actions">
+          <%= link_to "Back", posts_path, class:'btn btn-warning' %>
+          <%= f.button :submit, "Update", class:'btn btn-primary' %>
+        </div>
+        </div>
+
+      <% end %>
+    </div>
+    <div class="form-actions col-6 mt-5 pt-2 ml-3">
+      <h3 class="text-danger display-5 text-center bold pt-5">Cancel my account</h3><br/>
+      <p class="bold text-center">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", class:'text-danger bold' }, method: :delete %></p>
+    </div>
+  </div>
+</div>

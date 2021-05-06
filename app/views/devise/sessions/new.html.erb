@@ -1,0 +1,31 @@
+<div class="container pb-5 px-5">
+  <div class="row py-5 px-5 bg-white">
+
+    <div class="container col-6 h-50 h-50">
+      <img src="https://images.pexels.com/photos/3494806/pexels-photo-3494806.jpeg" class="card-img-top h-50" >
+    </div>
+
+    <div class="container col-6 py-5 px-5">
+      <h2>Log in</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :username,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "Username" } %>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Log in", class:'btn btn-primary mb-5' %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

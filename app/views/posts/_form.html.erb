@@ -1,0 +1,51 @@
+
+<div class="form-wrapper my-3">
+  <%= form_with(model: post, local: true) do |form| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <p><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</p>
+
+        <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field mt-5">
+      <%= form.hidden_field :author_id%>
+    </div>
+
+    <div class="field mt-5">
+      <%= form.label :title, class:'bold' %><br>
+      <%= form.text_field :title %>
+    </div>
+    
+    <div class="field mt-3">
+      <%= form.label "Categories", class:'bold' %><br>
+      <% @categories.each do |c| %>
+        <span class="mr-2">
+          <%= form.check_box("categories_list", {:multiple => true}, c.id, nil) %>
+          <label><%= h c.name %></label>
+        </span>
+      <% end %>
+    </div>
+    <br>
+    <span class="">Do you don't found a Category? <br><%= link_to "Create a new Category", new_category_path, :class => "pl-1 font-italic", target: :_blank %> </span>
+    <div class="field">
+      <%= form.label "Write a Review", class:'mt-4 bold' %><br>
+      <%= form.text_area(:text, cols: 60, rows: 9) %>
+    </div>
+
+    <div class="field ">
+      <%= form.label "Pick an Image: ", class:'bold mt-2 pl-4' %><br>
+      <%= form.file_field :image, direct_upload: true, class: '' %>
+    </div>
+
+    <div class="actions mb-5 pb-5 mt-3">
+      <%= form.submit "Create", :class => 'btn btn-primary ' %>
+      <%= link_to 'Back', posts_path, class: 'btn btn-warning ml-1'%>
+    </div>
+  <% end %>
+</div>

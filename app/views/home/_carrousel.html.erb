@@ -1,0 +1,77 @@
+<div class="container-fluid px-0">
+  <div class="container-fluid px-0 d-flex">
+    <div id="carouselExampleSlidesOnly" class="carousel-slide px-0 col-8" data-ride="carousel">
+      <div class="carousel-inner container px-0 col-xs-12 ">
+        
+        <div class="carousel-item active px-0 col-12 bg">
+          <div class="carousel-caption">
+            <h1 class="head bold ">Python for everbody</h1>
+            <p class="text-white">Python for Everybody is designed to introduce students to programming and software development through the lens of exploring data.</p>
+            <%= link_to 'Explore more', posts_path, class:'btnc' %>
+          </div>
+          <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg" width="100vw" height="625" alt="First slide">
+        </div>
+
+        <div class="carousel-item px-0 col-12 bg">
+          <div class="carousel-caption">
+            <h1 class="head bold ">The BookShelve Readers</h1>
+            <p class="text-white">Reading has a significant number of benefits, and here’re 10 benefits of reading to get you to start reading. Explore best seller books only there in The BookShelve.</p>
+            <%= link_to 'Explore more', posts_path, class:'btnc' %>
+          </div>
+          <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/1333732/pexels-photo-1333732.jpeg"  width="100vw" height="625" alt="Second slide">
+        </div>
+
+        <div class="carousel-item px-0 col-12 bg">
+          
+            <div class="carousel-caption">
+              <h1 class="head bold ">Create your account now!</h1>
+              <p class="text-white">Be part of this community of readers arround the world and recibe updates.</p>
+              <%= link_to "Here", new_user_registration_path, class:"btnc" %>
+            </div>
+            <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/279222/pexels-photo-279222.jpeg" width="100vw" height="625" alt="Third slide">
+          </div>
+      </div>
+
+    </div>
+      <div class="container-fluid col-4 px-0">
+          <img class="img-fluid w-100 imgc" src="https://images.pexels.com/photos/2861798/pexels-photo-2861798.jpeg" width="100vw" height="625" alt="Third slide">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="first-row main-posts col-12 p-0" style="background-image: url(<%= (url_for(most_voted_partial.image)) %>)">
+    <div class="cover-gradient p-4 d-flex flex-column justify-content-end">
+        <p class="main-title text_orange text-right text-uppercase"> <%= @most_voted.title %> </p> 
+        <p class = "posts_text text-right text-white"> <%= truncate("#{@most_voted.text}", :length => 135) %> </p>
+    </div>
+</div>
+
+
+
+<div class="container-fluid px-0 ">
+  <div class="container-fluid px-0 d-flex">
+    <div class="container col-3 px-0">
+      <a href="https://thebookshelve.herokuapp.com/posts/14">
+        <img class="img-fluid w-100 imgc1" src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1581097994-41FddZoWzL.jpg" alt="Second slide">
+      </a>
+    </div>
+    <div class="container col-3 px-0">
+      <a href="https://thebookshelve.herokuapp.com/posts/17">
+        <img class="img-fluid w-100 imgc1" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1568743976l/46064076._SY475_.jpg" alt="Second slide">
+      </a>
+    </div>
+    <div class="container col-3 px-0">
+      <a href="https://thebookshelve.herokuapp.com/posts/18">
+        <img class="img-fluid w-100 imgc1" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1465761302l/28257707.jpg" alt="Second slide">
+      </a>
+    </div>
+    <div class="container col-3 px-0">
+      <a href="https://thebookshelve.herokuapp.com/posts/19">
+        <img class="img-fluid w-100 imgc1" src="https://prodimage.images-bn.com/pimages/9780316556323_p0_v4_s550x406.jpg" alt="Second slide">
+      </a>
+    </div>
+  </div>
+</div>
+

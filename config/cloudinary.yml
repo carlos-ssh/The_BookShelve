@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hdnkel3ul
+  api_key: '525672817122511'
+  api_secret: EtupclFRnVApeEWKPjDObISfp2I
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: hdnkel3ul
+  api_key: '525672817122511'
+  api_secret: EtupclFRnVApeEWKPjDObISfp2I
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: hdnkel3ul
+  api_key: '525672817122511'
+  api_secret: EtupclFRnVApeEWKPjDObISfp2I
+  enhance_image_tag: true
+  static_file_support: false

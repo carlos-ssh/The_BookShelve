@@ -1,0 +1,65 @@
+<%
+=begin%>
+ <div class="container-fluid ">
+  <div class="card my-3 py-5 mb-5 px-5">
+    <div class="my-3 pt-3 px-5">
+      <% @posts.each do |post| %>
+        <% if post.image.attached? %>
+      <div class="card-horizontal">
+          <div class="col-5 img-square-wrapper">
+              <%= link_to image_tag(post.image, class:'card-img-top img-fluid', :size => '260x180'), post_path(post, category: @category_name, order: @order) %>
+          </div>
+          <div class="card-body col-7">
+              <h4 class="card-title text-center"><%= link_to post.title, post_path(post) %></h4>
+              <p class="card-text"><%= post.review %></p>
+            <div class="container my-5 py-3">
+              <%= link_to 'Read more', post_path(post), class:'btn btn-warning' %>
+            </div>
+          </div>
+      </div>
+        <% end %>
+          <div class="container mb-3"></div>
+      <% end %>
+    </div>
+  </div>
+</div> 
+<%
+=end%>
+
+
+
+
+
+
+
+
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.text %></td>
+        <td><%= post.author_id %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create a New Post', new_post_path %>

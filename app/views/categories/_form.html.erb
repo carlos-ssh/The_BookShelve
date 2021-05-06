@@ -1,0 +1,35 @@
+<div class="container px-5 mx-5">
+  <div class="container form-group">
+    <%= form_with(model: category) do |form| %>
+    <% if category.errors.any? %>
+      <div id="error_explanation" class="container">
+        <h2 class="bold"><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+        <ul>
+          <% category.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="container ml-3">
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, class:'form-control w-25' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :priority %></br>
+        <%= form.number_field :priority, class:'form-control w-25' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit(class: 'btn btn-primary') %>
+        <%= link_to 'Back', categories_path, class:'ml-3 btn btn-warning' %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+

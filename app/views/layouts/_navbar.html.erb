@@ -1,0 +1,55 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand "> <%= render 'layouts/logo', class:"" %> <%= link_to "The BookShelve", root_path, class:'navbar-brand bold text-nav ' %> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav pl-5 me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link active bold home" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bold" href="https://thebookshelve.herokuapp.com/categories/5"> Homebrew </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bold" href="https://thebookshelve.herokuapp.com/categories/1"> Programming </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bold" href="https://thebookshelve.herokuapp.com/categories/2"> Horror </a>
+        </li>
+
+      </ul>
+
+      <div class="navbar-nav ml-auto">
+        <% if current_user %>
+        <li class="nav-item dropdown">
+          <a class="nav-link bold dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.username %>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <% if current_user %>
+              <%= link_to "Create New Post", new_post_path, class: "dropdown-item" %>
+              <%= link_to "Create New Category", new_category_path, class: "dropdown-item" %>
+              <%= link_to "Bookmarks", bookmarks_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+          </div>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Log in", new_user_session_path, class:"nav-link mx-1 text-dark bold" %>
+        </li>
+        <h5 class="nav-item pt-2">|</h5>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class:"nav-link mx-1 text-dark bold" %>
+        </li>
+        <% end %>
+        <li class="nav-item pt-1"> <%= render 'layouts/search_icon' %> </li>
+      </div>
+
+    </div>
+  </div>
+</nav>

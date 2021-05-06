@@ -1,3 +1,7 @@
+# file: ~/.gitignore_global
+.DS_Store
+.idea
+
 *.rbc
 capybara-*.html
 .rspec
@@ -11,6 +15,7 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
+.env
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -65,3 +70,12 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+/config/master.key

@@ -1,0 +1,49 @@
+<div class="container-fluid px-0">
+  <div class="container-fluid px-0 d-flex">
+    <div id="carouselExampleSlidesOnly" class="carousel-slide px-0 col-8" data-ride="carousel">
+      <div class="carousel-inner container px-0 col-xs-12 ">
+        <div class="carousel-item active px-0 col-12 bg">
+          <div class="carousel-caption">
+            <h1 class="head bold ">Python for everbody</h1>
+            <p class="text-white">Python for Everybody is designed to introduce students to programming and software development through the lens of exploring data.</p>
+            <%= link_to 'Explore more', posts_path, class:'btnc' %>
+          </div>
+          <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg"  width="100vw" height="625" alt="First slide">
+        </div>
+        <div class="carousel-item px-0 col-12 bg">
+          <div class="carousel-caption">
+            <h1 class="head bold ">The BookShelve Readers</h1>
+            <p class="text-white">Reading has a significant number of benefits, and here’re 10 benefits of reading to get you to start reading. Explore best seller books only there in The BookShelve.</p>
+            <%= link_to 'Explore more', posts_path, class:'btnc' %>
+          </div>
+          <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/1333732/pexels-photo-1333732.jpeg"  width="100vw" height="625" alt="Second slide">
+        </div>
+        <div class="carousel-item px-0 col-12 bg">      
+            <div class="carousel-caption">
+              <h1 class="head bold ">Create your account now!</h1>
+              <p class="text-white">Be part of this community of readers arround the world and recibe updates.</p>
+              <%= link_to "Here", new_user_registration_path, class:"btnc" %>
+            </div>
+            <img class="img-fluid w-100 divs imgc" src="https://images.pexels.com/photos/279222/pexels-photo-279222.jpeg" width="100vw" height="625" alt="Third slide">
+          </div>
+      </div>
+    </div>
+      <div class="container-fluid col-4 px-0">
+          <%= most_voted_partial %>
+        <div class="carousel-caption">
+          <h5 class="head display-4 bold">Most Voted Section</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid d-flex mx-0 px-0 mb-4">
+  <% @categories.each do |category| %>
+    <div class="row px-0 mx-0 px-0">
+      <%= image_tag last_post_image(category), class:'w-100 img' %>
+      <%= link_to "#{category.name}", category_path(category), class: 'ttl-txt' %>
+      <span class="efx"></span>
+    </div>
+  <% end %>
+</div>

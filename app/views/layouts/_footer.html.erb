@@ -1,0 +1,22 @@
+
+<div class="container-fluid">
+    <div class="row d-flex justify-content-between">
+        <div class="col-2">
+            <a class="navbar-brand mt-2">
+                <%= render 'layouts/logo', class:" pt-2" %>
+                    <%= link_to "BookShelve", root_path, class:'navbar-brand bold text-nav text-white pt-2' %>
+            </a>
+        </div>
+        <div class="row px-auto pl-5 col-6 pt-2 d-flex justify-content-center">
+            <a class="px-1 pt-2" href="#">Privacy</a>
+            <a class="px-1 pt-2" href="#">Policy</a>
+            <a class="px-1 pt-2" href="#">Terms & Conditions</a>
+            <p class="text-white px-1 pt-2">Copyright 2021</p>
+            <a href="https://github.com/carlos-ssh/bookshelve" class="text-white px-1 pt-2">All rights reserved</a>
+
+        </div>
+        <div class="col-4 pt-2">
+            <%= render 'layouts/sm' %>
+        </div>
+    </div>
+</div>
